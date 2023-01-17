@@ -10,10 +10,13 @@
 </head>
 <body>
     <div id="main">
-        <h1>Pokédex</h1>
+        <div class="titulo">
+            <h1>Pokédex </h1> <img src="./imagens/pokebola.png" alt="pokebola"> 
+        </div>
+
         <div id="pesquisa">
             <form action = "pesquisa_nome.php" method = "GET">
-                    <input class="caixa-pesquisa" type = "text" placeholder = "Name do pokémon " name = "name_pokemon" />
+                    <input class="caixa-pesquisa" type = "text" placeholder = "Insira o nome do pokémon " name = "name_pokemon" />
                     <button class="icone-pesquisa" type = "submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 
             </form>
@@ -21,8 +24,12 @@
        
         
         <div class="card">
-            <img src="poke1.png" alt="pokemon">
+            <img src="./imagens/poke1.png" alt="pokemon">
             <p id="nome-pokemon">Bulbasaur</p>
+            <div class="tipos">
+                <p class="verde tipo">Grama</p>
+                <p class="roxo tipo">Veneno</p>
+            </div>
         </div>
         
     </div>

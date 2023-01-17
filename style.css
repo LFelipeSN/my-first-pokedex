@@ -5,6 +5,12 @@
     box-sizing: border-box;
     font-family: Poppins;
 }
+.verde{
+    background: rgba(132, 203, 157, 0.56);
+}
+.roxo{
+    background: rgb(94, 85, 132);
+}
 
 body{
     /* background: linear-gradient(to bottom, rgba(222, 15, 15, 0.2) 56.2%, rgba(255, 255, 255, 0.2) 96.15%), #FFFFFF; */
@@ -14,48 +20,54 @@ body{
     height: 100vh;
    
 }
+.titulo{
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    display: flex;
+    flex: row;
+    gap: 20px;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 65px;
+    text-align: center;
+    color: #530000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 #pesquisa{
     text-align: center;
     align-items: center;
     margin: 30px;
 }
 .caixa-pesquisa{
-    width: 18.65rem;
-    /*
-    height: 2.25rem; 
-    background: #D9D9D9;
+    width: 18rem;
+    height: 2.25rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    margin-bottom: 30px;
+    background: #D9D9D9; 
     backdrop-filter: blur(2px);
-    border-radius: 15px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0; */
-    border: none;
-    outline: none;
-    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);
     
-
+    
 }
 .icone-pesquisa,.caixa-pesquisa{
-    
-    height: 2.25rem;
+    height: 2rem; 
     border: none;
-    border-radius: 15px;
-    font-size: 15px;
-    background: #D9D9D9;
-    backdrop-filter: blur(2px);
-    border-radius: 15px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    font-size: 15px;
+    border-radius: 30px;
+   
+    
 }
 .icone-pesquisa{
-    /* margin-left: -25px; */
-    /* width: 18.65rem;*/
-    height: 2.25rem; 
-    font-size: 15px;
-    width: 30px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin-left:-4.5px ;
+    position:absolute;
+    margin-left: -22px;
+    cursor: pointer;
+    background: none;
 }
+
+.caixa-pesquisa:focus{
+    outline: none;
+}
+
 .card{
     width: 40vh;
     height: 40vh;
@@ -66,9 +78,25 @@ body{
     padding: 10px;
     margin: auto;
 }
+.card:hover{
+    transition: 1s;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 #nome-pokemon{
     color: rgba(122, 209, 152, 1);
     font-weight: 600;
     font-size: 24px;
     line-height: 36px;
+}
+.tipos{
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    gap: 30px;
+}
+.tipo{
+    width: 20rem;
+    border-radius: 20px;
+    padding: 6px;
+    line-height: 21px;
 }
