@@ -22,13 +22,26 @@
             </form>
         </div>
        
-        
-        <div class="card">
-            <img src="./imagens/poke1.png" alt="pokemon">
-            <p id="nome-pokemon">Bulbasaur</p>
-            <div class="tipos">
-                <p class="verde tipo">Grama</p>
-                <p class="roxo tipo">Veneno</p>
+        <div class="card-container" ontouchstart="this.classList.toggle('hover')";>
+            <div class="card">
+                <div class="frente">
+                    <img src="./imagens/poke1.png" alt="pokemon">
+                    <p id="nome-pokemon">Bulbasaur</p>
+                        <div class="tipos">
+                            <p class="verde tipo">Grama</p>
+                            <p class="roxo tipo">Veneno</p>
+                        </div>
+                </div>
+                <div class="tras">
+                        <div class="tipos-tras">
+                            <p class="verde tipo">Grama</p>
+                            <p class="verde tipo">Grama</p>
+                            <p class="verde tipo">Grama</p>
+                            <p class="roxo tipo">Veneno</p>
+                            <p class="roxo tipo">Veneno</p>
+                        </div>
+                </div>
+                     
             </div>
         </div>
         
