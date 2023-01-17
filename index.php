@@ -33,13 +33,22 @@
                         </div>
                 </div>
                 <div class="tras">
-                        <div class="tipos-tras">
-                            <p class="verde tipo">Grama</p>
-                            <p class="verde tipo">Grama</p>
-                            <p class="verde tipo">Grama</p>
-                            <p class="roxo tipo">Veneno</p>
-                            <p class="roxo tipo">Veneno</p>
-                        </div>
+                        <table>
+                            <p>Fraquezas:</p>
+                            <br/>
+                            <tr>
+                                <td class="verde tipo">Grama</td>
+                                <td class="verde tipo">Grama</>
+                            </tr>
+                            <tr>
+                                <td class="verde tipo">Grama</td>
+                                <td class="roxo tipo">Veneno</td>
+                            </tr>
+                            
+                            
+                        </table>
+                        <tr>
+
                 </div>
                      
             </div>

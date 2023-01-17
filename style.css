@@ -79,7 +79,8 @@ body{
     margin-left: 82.5vh;
     transition: 0.6s;  	
     transform-style: preserve-3d;    	
-    position: relative;  
+    position: relative; 
+
 }
 .card:hover{
     transition: 1s;
@@ -90,19 +91,14 @@ body{
     font-weight: 600;
     font-size: 24px;
     line-height: 36px;
+    
 }
 .tipos{
     display: flex;
     margin: 10px;
     justify-content: center;
     gap: 30px;
-}
-.tipos-tras{
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    gap :30px;
-    
+ 
 }
 
 .tipo{
@@ -111,9 +107,13 @@ body{
     padding: 6px;
     line-height: 21px;
 }
+tr{
+    margin: 10px;
+}
 /* ################## VIRAR CARD ##################*/
 .card-container{
     perspective: 1000;
+    
 }
 .card-container:active .card, .card-container.active .card {  		
     transform: rotateY(180deg);  	
@@ -121,7 +121,7 @@ body{
 }
 
 .frente, .tras {  	
-    
+
     backface-visibility: hidden;    	
     text-align: center;
     padding: 10px;
