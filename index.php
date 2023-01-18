@@ -9,6 +9,8 @@
     <title>POKÉDEX</title>
 </head>
 <body>
+    <?php include("connect_to_database.php"); ?>
+
     <div id="main">
         <div class="titulo">
             <h1>Pokédex </h1> <img src="./imagens/pokebola.png" alt="pokebola"> 
@@ -25,7 +27,7 @@
         <div class="card-container" ontouchstart="this.classList.toggle('hover')";>
             <div class="card">
                 <div class="frente">
-                    <img src="./imagens/poke1.png" alt="pokemon">
+                    <img src= "./imagens/bulbasaur.png" alt="pokemon">
                     <p id="nome-pokemon">Bulbasaur</p>
                         <div class="tipos">
                             <p class="verde tipo">Grama</p>
@@ -58,17 +60,14 @@
     
     
 
-    <?php        
-
-
-        $con = mysqli_connect('localhost','root','admin');
-        mysqli_select_db($con, 'pokedex');
-        
-        $query = "SELECT * FROM pokemon";
+    <?php    
     
-	    $result = mysqli_query($con, $query);
-
-        if($result){
+    
+    
+    
+  
+   
+        /*if($result){
             while($row = mysqli_fetch_array($result)){
                 $name = $row["Name"];
                 $type = $row["Type"];
@@ -78,12 +77,9 @@
                 echo "Song: ". $song ;
 
             }
-        }
+        }*/
     
         #phpinfo(); 
-        #mysqli_close($con);
-
-        #  <input type= "submit" value="Procurar">
 
     ?>
 </body>
