@@ -56,32 +56,13 @@
             </div>
         </div>
         
+        <div>
+            <form action = "listar_todos.php">
+                <h2>Listar todos os pokémons<button class= "listar_todos" type = "submit"><i class="fa-solid fa-magnifying-glass"></i></button></h2>                
+            </form>
+        </div>
     </div>
-    
-    
-
-    <?php    
-    
-    
-    
-    
-  
-   
-        /*if($result){
-            while($row = mysqli_fetch_array($result)){
-                $name = $row["Name"];
-                $type = $row["Type"];
-                $song = $row["Song"];
-                echo "Name: ". $name . " ";
-                echo "Type: ". $type . " ";
-                echo "Song: ". $song ;
-
-            }
-        }*/
-    
-        #phpinfo(); 
-
-    ?>
+        
 </body>
 </html>
 

@@ -1,31 +1,35 @@
 <?php #search for name pokemon
 
 include("connect_to_database.php");
+include("functions.php");
+
 
 $name_search = $_GET["name_pokemon"];
-$image_name = "";
+$image_id = "000";
 
-mysqli_select_db($mysqli, 'pokedex');    
-$sql = "SELECT * FROM pokémon";
-$result = mysqli_query($mysqli, $sql);
 
-echo "<p>o nome pesquisado foi $name_search<p>";
+$result = sql_consult($mysqli);
 
 if($result){    
     while($row = mysqli_fetch_array($result)){    
-        if($row["Name"] == $name_search){    
-            $image_name = $name_search;
+        if($row["name"] == $name_search){    
+            $image_id = $row["pokemon_id"];
             break;
         }  
-
     }
 }
+
 
 #var_dump($_GET);
 ?>
 
 <div>
-    <img src = <?php echo "./imagens/". $image_name .".png"; ?> alt="pokemon"> 
+    <img src = <?php echo image_find($image_id); ?> alt="pokemon">                                                         
+</div>
+
+<div>
+    <p></p>
+    <?php echo ($image_id == "000" ? "Não conseguimos achar este pokémon!" : $name_search); ?>
 </div>
 
 <form action = "index.php" >
