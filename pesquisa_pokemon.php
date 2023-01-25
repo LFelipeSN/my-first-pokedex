@@ -1,12 +1,14 @@
-<?php #search for name pokemon
+<?php #search for name pokemon ----- futuramente vai ser o exibir pokemon
 
 include("connect_to_database.php");
 include("functions.php");
 
+#SELECT * FROM `pokemon` where pokemon.name LIKE '%mew%'; -----futura busca-=--- 
+
 
 $name_search = $_GET["name_pokemon"];
+$name_search = strval($name_search);
 $image_id = "000";
-
 
 $result = sql_consult($mysqli);
 
@@ -30,9 +32,18 @@ if($result){
 <div>
     <p></p>
     <?php echo ($image_id == "000" ? "Não conseguimos achar este pokémon!" : $name_search); ?>
+    <p></p>
 </div>
 
-<form action = "index.php" >
+<!-- ?php if($image_id != "000"): ?> -->
+    
+    <!-- <form action = "pokemon_evolution.php"> -->
+        <button class= "Ver Evolução" type = "submit"><a href = <?php echo go_evolution($name_search, $mysqli); ?> >Ver Evolução</a></button>                
+    <!-- </form> -->
+     
+<!-- ?php endif; ?> -->
+        
+<form action = "index.php" >            
     <button class="voltar" type = "submit">Voltar</button>
 </form>
 

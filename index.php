@@ -17,7 +17,7 @@
         </div>
 
         <div id="pesquisa">
-            <form action = "pesquisa_nome.php" method = "GET">
+            <form action = "pesquisa_pokemon.php" method = "GET">
                     <input class="caixa-pesquisa" type = "text" placeholder = "Insira o nome do pokémon " name = "name_pokemon" />
                     <button class="icone-pesquisa" type = "submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 
