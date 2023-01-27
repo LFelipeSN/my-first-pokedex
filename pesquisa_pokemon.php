@@ -3,11 +3,9 @@
 include("connect_to_database.php");
 include("functions.php");
 
-#SELECT * FROM `pokemon` where pokemon.name LIKE '%mew%'; -----futura busca-=--- 
-
 
 $name_search = $_GET["name_pokemon"];
-$name_search = strval($name_search);
+$name_search = $name_search;
 $image_id = "000";
 
 $result = sql_consult($mysqli);
@@ -35,13 +33,9 @@ if($result){
     <p></p>
 </div>
 
-<!-- ?php if($image_id != "000"): ?> -->
-    
-    <!-- <form action = "pokemon_evolution.php"> -->
-        <button class= "Ver Evolução" type = "submit"><a href = <?php echo go_evolution($name_search, $mysqli); ?> >Ver Evolução</a></button>                
-    <!-- </form> -->
-     
-<!-- ?php endif; ?> -->
+ <?php if($image_id != "000" || have_evolution($mysqli, $image_id) == true): ?>
+    <button class= "Ver Evolução" type = "submit"><a href = <?php echo go_evolution($mysqli, $name_search); ?> >Ver Evolução</a></button>                
+ <?php endif; ?> 
         
 <form action = "index.php" >            
     <button class="voltar" type = "submit">Voltar</button>
