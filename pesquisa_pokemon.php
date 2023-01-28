@@ -5,40 +5,39 @@ include("functions.php");
 
 
 $name_search = $_GET["name_pokemon"];
-$name_search = $name_search;
-$image_id = "000";
+$image_id = mt_rand(-3, -1);
 
-$result = sql_consult($mysqli);
+$result = sql_consult($mysqli, $name_search);
+$row = mysqli_fetch_array($result);     
+if( isset($row) ){       
+    if($row["name"] == $name_search){ 
+               $image_id =  $row["pokemon_id"]; ?>
+               <img src = <?php echo image_find( $image_id )?> alt="pokemon"> 
 
-if($result){    
-    while($row = mysqli_fetch_array($result)){    
-        if($row["name"] == $name_search){    
-            $image_id = $row["pokemon_id"];
-            break;
-        }  
+        <?php  echo "<br/>";
+               echo $row["pokemon_id"]; 
+               echo " "; 
+               echo $row["name"];
+               echo "<br/>";
+               echo $row["type_1"];
+               echo " ";
+               echo $row["type_2"];
+               echo "<br/>";
+               
     }
 }
-
-
-#var_dump($_GET);
 ?>
 
-<div>
-    <img src = <?php echo image_find($image_id); ?> alt="pokemon">                                                         
-</div>
+<?php if($image_id < 1):?>
+    <img src = <?php echo image_find( $image_id )?> alt="pokemon">
+    <p></p>    
+    <h2> Não conseguimos achar este pokémon!</h2>    
+<?php endif; ?>
 
-<div>
-    <p></p>
-    <?php echo ($image_id == "000" ? "Não conseguimos achar este pokémon!" : $name_search); ?>
-    <p></p>
-</div>
-
- <?php if($image_id != "000" || have_evolution($mysqli, $image_id) == true): ?>
-    <button class= "Ver Evolução" type = "submit"><a href = <?php echo go_evolution($mysqli, $name_search); ?> >Ver Evolução</a></button>                
- <?php endif; ?> 
+<?php if($image_id < 1 && have_evolution($mysqli, $image_id) != NULL): ?>
+    <button class= "Ver Evolução" type = "submit"><a href = <?php echo evolution_find($image_id) ?> >Ver Evolução</a></button>                
+<?php endif; ?> 
         
 <form action = "index.php" >            
     <button class="voltar" type = "submit">Voltar</button>
 </form>
-
-

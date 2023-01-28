@@ -9,7 +9,9 @@
     <title>POKÉDEX</title>
 </head>
 <body>
-    <?php include("connect_to_database.php"); ?>
+    <?php include("connect_to_database.php");
+          include("functions.php");
+          $rand = mt_rand(1, 151)?>
 
     <div id="main">
         <div class="titulo">
@@ -27,11 +29,13 @@
         <div class="card-container" ontouchstart="this.classList.toggle('hover')";>
             <div class="card">
                 <div class="frente">
-                    <img src= "./imagens/bulbasaur.png" alt="pokemon">
-                    <p id="nome-pokemon">Bulbasaur</p>
-                        <div class="tipos">
-                            <p class="verde tipo">Grama</p>
-                            <p class="roxo tipo">Veneno</p>
+                    <img width = "150" height = "150" src= <?php echo image_index($rand); ?> alt="pokemon">
+                    <p id="nome-pokemon"><?php echo name_index($mysqli, $rand); ?> </p>
+                        <div class="tipos">                            
+                            <p class="verde tipo"><?php echo type1_index($mysqli, $rand);?> </p>
+                            <?php if( type2_index($mysqli, $rand) != NULL):?>
+                            <p class="roxo tipo"> <?php echo type2_index($mysqli, $rand);?> </p>
+                            <?php endif;?>           
                         </div>
                 </div>
                 <div class="tras">

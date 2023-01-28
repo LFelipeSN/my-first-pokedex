@@ -88,7 +88,7 @@ body{
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 #nome-pokemon{
-    color: rgba(122, 209, 152, 1);
+    color: rgb(7, 17, 11);
     font-weight: 600;
     font-size: 24px;
     line-height: 36px;

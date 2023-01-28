@@ -157,5 +157,5 @@ INSERT INTO `pokemon` VALUES
 (147,'Dratini','Dragon',NULL,147),
 (148,'Dragonair','Dragon',NULL,147),
 (149,'Dragonite','Dragon','Flying',147),
-(150,'Mewtwo','Psychic',NULL,150),
-(151,'Mew','Psychic',NULL,151);
+(150,'Mewtwo','Psychic',NULL,null),
+(151,'Mew','Psychic',NULL,null);
