@@ -22,19 +22,18 @@ if( isset($row) ){
                echo $row["type_1"];
                echo " ";
                echo $row["type_2"];
-               echo "<br/>";
-               
+               echo "<br/>";               
     }
 }
 ?>
 
-<?php if($image_id < 1):?>
+<?php if($image_id < 0):?>
     <img src = <?php echo image_find( $image_id )?> alt="pokemon">
     <p></p>    
     <h2> Não conseguimos achar este pokémon!</h2>    
 <?php endif; ?>
 
-<?php if($image_id < 1 && have_evolution($mysqli, $image_id) != NULL): ?>
+<?php if($image_id > 0 && have_evolution($mysqli, $image_id) != NULL): ?>
     <button class= "Ver Evolução" type = "submit"><a href = <?php echo evolution_find($image_id) ?> >Ver Evolução</a></button>                
 <?php endif; ?> 
         
