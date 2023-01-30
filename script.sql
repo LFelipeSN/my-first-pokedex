@@ -90,6 +90,8 @@ INSERT INTO `pokemon` VALUES
 (78,'Rapidash','Fire',NULL,77),
 (79,'Slowpoke','Water','Psychic',79),
 (80,'Slowbro','Water','Psychic',79),
+(81,'Magnemite','Electric','Steel',81),
+(82,'Magneton','Electric','Steel',81),
 (83,'Farfetch','Normal','Flying',83),
 (84,'Doduo','Normal','Flying',84),
 (85,'Dodrio','Normal','Flying',84),

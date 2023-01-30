@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/50cab0d7de.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>POKÉDEX</title>
 </head>
 <body>
@@ -13,10 +14,27 @@
           include("functions.php");
           $rand = mt_rand(1, 151)?>
 
-    <div id="main">
-        <div class="titulo">
-            <h1>Pokédex </h1> <img src="./imagens/pokebola.png" alt="pokebola"> 
+    <div class="container p-3 align-items-center align-text-center">
+        <div class="row align-items-center  mx-auto
+        ">
+            <div class="col-2 "><h1>Pokédex </h1></div>
+            <div class="col-2"> <img src="./imagens/pokebola.png" alt="pokebola"> </div>
+            
         </div>
+
+        
+        <!-- <div class="input-group mb-3 mx-auto" id="pesquisa">
+            <form class="row g-3 m-4" action="pesquisa_pokemon.php">
+                <div class="col-8">
+                <input type="text" class="form-control caixa-pesquisa" placeholder="Insira o nome do pokémon " aria-label="Insira o nome do pokémon " aria-describedby="basic-addon2" name = "name_pokemon" >
+                </div>
+
+                <div class="col-auto">
+                <button class="input-group-text icone-pesquisa" id="basic-addon2 type = "submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                
+            </form>
+        </div> -->
 
         <div id="pesquisa">
             <form action = "pesquisa_pokemon.php" method = "GET">
@@ -60,13 +78,16 @@
             </div>
         </div>
         
-        <div>
-            <form action = "listar_todos.php">
-                <h2>Listar todos os pokémons<button class= "listar_todos" type = "submit"><i class="fa-solid fa-magnifying-glass"></i></button></h2>                
-            </form>
-        </div>
-    </div>
         
+    
+        <form action = "listar_todos.php">
+            <button class="btn btn-sucess">Listar todos os pokémons<button class= "listar_todos" type = "submit"><i class="fa-solid fa-magnifying-glass"></i></button></button>                
+        </form>
+            
+        
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>    
 </body>
 </html>
 
