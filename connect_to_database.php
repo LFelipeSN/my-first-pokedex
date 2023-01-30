@@ -3,7 +3,7 @@
     $hostname = 'localhost';
     $database =  'pokedex';
     $user = 'root';
-    $password = '123456'; 
+    $password = 'admin'; 
 
     $mysqli = new mysqli($hostname, $user, $password, $database);
 

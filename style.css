@@ -14,10 +14,10 @@ body{
 .titulo{
     align-items: center;
     justify-content: center;
-    margin: 30px auto;
     display: flex;
-    flex: row;
-    gap: 20px;
+    flex-direction: row;
+    gap: 10px;
+    margin: 30px auto;
     font-weight: 800;
     font-size: 25px;
     line-height: 65px;
@@ -58,3 +58,54 @@ body{
 .caixa-pesquisa:focus{
     outline: none;
 }
+
+.card{
+    width: 40vh;
+    height: 40vh;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    padding: 10px;
+    margin-left: 82.5vh;
+    transition: 0.6s;  	
+    transform-style: preserve-3d;    	
+    position: relative; 
+}
+.alinhamento{
+    border: red 1px solid;
+}
+/* .card:hover{
+    transition: 1s;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+} */
+
+/* ################## VIRAR CARD ##################*/
+.card-container{
+    perspective: 1000;
+    
+}
+.card-container:active .card, .card-container.active .card {  		
+    transform: rotateY(180deg);  	
+
+}
+
+.frente, .tras {  	
+
+    backface-visibility: hidden;    	
+    text-align: center;
+    padding: 10px;
+    margin: auto;
+    top: 0;  	
+    left: 0;  
+    position: absolute;
+}  
+.frente ,.tras ,.card-container{
+    width: 40vh;
+    height: 40vh;
+}  
+.tras {
+     z-index: 2; 
+ }    
+.tras { 
+    transform: rotateY(180deg);
+ }
