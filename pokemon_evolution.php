@@ -13,16 +13,13 @@
 
         $pokemon_id = $_GET["id"];
         
-        go_evolution($mysqli, $pokemon_id);  
-        
-        
+        go_evolution($mysqli, $pokemon_id); 
 
    ?>
 
     <form action = "index.php">
         <button class="voltar" type = "submit">Voltar</button>
     </form>
-
 
 </body>
 </html>
