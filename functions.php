@@ -1,52 +1,57 @@
 <?php
 include("connect_to_database.php");
 
-function image_find($image_id){#funcao para retornar a imagem   
+class index {
+    public int $rand;    
+   
+    function __construct($rand) {
+        $this->rand = $rand;
+    }
+
+    function name_index($mysqli){
+        $result = sql_consult_id($mysqli, $this->rand);
+        $row = mysqli_fetch_array($result);
+        return $row["name"];
+    }
+    
+    
+    function type1_index($mysqli){
+        $result = sql_consult_id($mysqli, $this->rand);
+        $row = mysqli_fetch_array($result);
+        return $row["type_1"];
+    }
+    
+    
+    function type2_index($mysqli){
+        $result = sql_consult_id($mysqli, $this->rand);
+        $row = mysqli_fetch_array($result);
+        return $row["type_2"];
+    }    
+
+}
+
+
+class url {    
+
+    function evolution_find($pokemon_id){
+        return "pokemon_evolution.php?id=". $pokemon_id;
+    }
+
+    function pokemon_list($pokemon_id=1){
+        return "list_all.php?id=". $pokemon_id;
+    }
+    
+    function pokemon_find($mysqli, $pokemon_id){
+        $result = sql_consult_id($mysqli, $pokemon_id);
+        $row = mysqli_fetch_array($result);
+        return "search_pokemon.php?name_pokemon=" . $row["name"];
+    
+    }
+}
+
+
+function image_find($image_id){  
     return "./imagens/". $image_id .".png"; 
-}
-
-
-function evolution_find($pokemon_id){
-    return "pokemon_evolution.php?id=". $pokemon_id;
-}
-
-
-function pokemon_list($pokemon_id=1){
-    return "list_all.php?id=". $pokemon_id;
-}
-
-
-function image_index($rand){
-    return image_find($rand);
-}
-
-
-function name_index($mysqli, $rand){
-    $result = sql_consult_id($mysqli, $rand);
-    $row = mysqli_fetch_array($result);
-    return $row["name"];
-}
-
-
-function type1_index($mysqli, $rand){
-    $result = sql_consult_id($mysqli, $rand);
-    $row = mysqli_fetch_array($result);
-    return $row["type_1"];
-}
-
-
-function type2_index($mysqli, $rand){
-    $result = sql_consult_id($mysqli, $rand);
-    $row = mysqli_fetch_array($result);
-    return $row["type_2"];
-}
-
-
-function pokemon_find($mysqli, $pokemon_id){
-    $result = sql_consult_id($mysqli, $pokemon_id);
-    $row = mysqli_fetch_array($result);
-    return "search_pokemon.php?name_pokemon=" . $row["name"];
-
 }
 
 
@@ -111,7 +116,7 @@ function list_all($mysqli, $pokemon_id){
 }
 
 
-function go_evolution($mysqli, $pokemon_id){
+function go_evolution($mysqli, $pokemon_id, $url){
 
     $consult = sql_consult_id($mysqli, $pokemon_id);
     $evolution_line = mysqli_fetch_array($consult);
@@ -125,7 +130,7 @@ function go_evolution($mysqli, $pokemon_id){
 
                 <?php print_pokemon($row) ?>
 
-                      <button class= " " type = "submit"><a href =<?php echo pokemon_find($mysqli, $row["pokemon_id"]); ?> >Ver Pokémon</a></button>   
+                      <button class= " " type = "submit"><a href =<?php echo $url -> pokemon_find($mysqli, $row["pokemon_id"]); ?> >Ver Pokémon</a></button>   
 
                 <?php echo "<br/>";
                       echo "<br/>";       

@@ -10,10 +10,11 @@
    <?php
         include("connect_to_database.php");
         include("functions.php");
+        $url = new url;
 
         $pokemon_id = $_GET["id"];
         
-        go_evolution($mysqli, $pokemon_id); 
+        go_evolution($mysqli, $pokemon_id, $url); 
 
    ?>
 

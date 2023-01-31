@@ -13,8 +13,10 @@
 
 <body>
     <?php include("connect_to_database.php");
-    include("functions.php");
-    $rand = mt_rand(1, 151) ?>
+          include("functions.php");
+          $rand = mt_rand(1, 151); 
+          $url = New url;
+          $index = New index($rand);?>
 
     <div class="container p-3 align-items-center align-text-center">
         <div class="titulo">
@@ -38,13 +40,13 @@
             <div class="card-container card-group align-itens-center " ontouchstart="this.classList.toggle('hover')" ;>
                 <div class="card bg-secondary">
                     <div class="frente bg-secondary">
-                        <img width="150" height="150" src=<?php echo image_index($rand); ?> alt="pokemon">
-                        <p id="nome-pokemon"><?php echo name_index($mysqli, $rand); ?> </p>
+                        <img width="150" height="150" src= <?php echo image_find($rand); ?>  alt="pokemon">
+                        <p id="nome-pokemon"><?php echo $index -> name_index($mysqli); ?> </p>
                         <div class="tipos">
-                            <p class="verde tipo"><?php echo type1_index($mysqli, $rand); ?> </p>
-                            <?php if (type2_index($mysqli, $rand) != NULL) : ?>
-                                <p class="roxo tipo"> <?php echo type2_index($mysqli, $rand); ?> </p>
-                            <?php endif; ?>
+                        <p class="verde tipo"><?php echo $index -> type1_index($mysqli);?> </p>
+                            <?php if( $index -> type2_index($mysqli) ):?>
+                            <p class="roxo tipo"> <?php echo $index -> type2_index($mysqli);?> </p>
+                            <?php endif;?>  
                         </div>
                     </div>
                     <div class="tras">
@@ -63,7 +65,7 @@
             <button class="btn btn-sucess">Listar todos os pokémons<button class= "list_all" type = "submit"><i class="fa-solid fa-magnifying-glass"></i></button></button>                
         </form> -->
         <br />
-        <button class="btn btn-sucess"><a href=<?php echo pokemon_list() ?>>Listar todos os pokémons </a><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="btn btn-sucess"><a href = <?php echo $url -> pokemon_list() ?>>Listar todos os pokémons </a><i class="fa-solid fa-magnifying-glass"></i></button>         
         <br />
         <br />
 

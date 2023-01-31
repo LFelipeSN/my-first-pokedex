@@ -2,6 +2,7 @@
 
 include("connect_to_database.php");
 include("functions.php");
+$url = new url;
 
 $name_search = $_GET["name_pokemon"];
 
@@ -16,7 +17,7 @@ $image_id = search_pokemon($mysqli, $name_search);
 <?php endif; ?>
 
 <?php if($image_id > 0 && have_evolution($mysqli, $image_id) != NULL): ?>
-    <button class= "Ver Evolução" type = "submit"><a href = <?php echo evolution_find($image_id) ?> >Ver Evolução</a></button>                
+    <button class= "Ver Evolução" type = "submit"><a href = <?php echo $url -> evolution_find($image_id) ?> >Ver Evolução</a></button>                
 <?php endif; ?> 
         
 <form action = "index.php" >            
