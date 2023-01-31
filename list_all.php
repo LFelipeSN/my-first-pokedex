@@ -21,16 +21,27 @@ $pokemon_id = $_GET["id"];
 
 list_all($mysqli, $pokemon_id);
 
-$pokemon_id = ($pokemon_id+8);
+$previous_list = ($pokemon_id-8);
+$next_list = ($pokemon_id+8);
+
 
 ?>
 
 <form action = "index.php">
     <button class="voltar" type = "submit">Voltar</button>
 </form>
-<div class="card bg-secondary">
-    <button><a href = <?php echo $url -> pokemon_list($pokemon_id); ?>><h3>proximos</h3></a></button>   
-</div>
+
+<?php if( $pokemon_id > 8 ):?>
+    <div class="card bg-secondary">
+        <button><a href = <?php echo $url -> pokemon_list($previous_list); ?>><h3>Anterior</h3></a></button>   
+    </div>
+<?php endif;?>  
+
+<?php if( $pokemon_id <= 143 ):?>
+    <div class="card bg-secondary">
+        <button><a href = <?php echo $url -> pokemon_list($next_list); ?>><h3>proximos</h3></a></button>   
+    </div>
+<?php endif;?>  
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>

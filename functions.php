@@ -97,7 +97,8 @@ function search_pokemon($mysqli, $name_search){
 
 
 function list_all($mysqli, $pokemon_id){
-        for($i=1 ; $i <= 8 ; $i++):  
+    
+        for($i=1 ; $i <= 8 ; $i++):            
             $result = sql_consult_id($mysqli, $pokemon_id); 
             $row = mysqli_fetch_array($result);?>
 
@@ -108,11 +109,15 @@ function list_all($mysqli, $pokemon_id){
             <button class= " " type = "submit"><a href = "search_pokemon.php?name_pokemon=<?php echo $row["name"]; ?>" >Ver Pokémon</a></button>    
             
             <?php echo "<br/>"; 
-                  echo "<br/>";  
+                echo "<br/>";  
 
             $pokemon_id++;
-        endfor;   
-        
+
+            if($pokemon_id > 151){
+                break;
+            }
+
+        endfor;         
 }
 
 

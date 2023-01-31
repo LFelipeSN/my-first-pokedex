@@ -60,10 +60,7 @@
            
         </div>
 
-        <!--     
-        <form action = "list_all?id=1.php">
-            <button class="btn btn-sucess">Listar todos os pokémons<button class= "list_all" type = "submit"><i class="fa-solid fa-magnifying-glass"></i></button></button>                
-        </form> -->
+       
         <br />
         <button class="btn btn-sucess"><a href = <?php echo $url -> pokemon_list() ?>>Listar todos os pokémons </a><i class="fa-solid fa-magnifying-glass"></i></button>         
         <br />
