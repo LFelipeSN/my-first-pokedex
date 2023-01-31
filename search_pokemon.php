@@ -1,6 +1,5 @@
 <?php 
-
-include("connect_to_database.php");
+include("../connect_to_database.php");
 include("functions.php");
 $url = new url;
 

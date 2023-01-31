@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <?php include("connect_to_database.php");
+    <?php include("../connect_to_database.php");
           include("functions.php");
           $rand = mt_rand(1, 151); 
           $url = New url;
