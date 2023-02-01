@@ -6,26 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>    
-    <?php 
+<body>
+    <?php
     include("../connect_to_database.php");
     include("functions.php");
     $url = new url;
 
-    $name_search = $_GET["name_pokemon"];
+    $pokemon_id = $_GET["id"];
 
-    $found_pokemon = search_pokemon($mysqli, $name_search, $url); ?>
+    view_pokemon($mysqli, $pokemon_id);
 
-    <?php if($found_pokemon == FALSE):
-        $image_id = mt_rand(-3, -1);?>    
-        <img src = <?php echo image_find( $image_id )?> alt="pokemon">
-        <p></p>    
-        <h2> Não conseguimos achar este pokémon!</h2>    
-    <?php endif; ?>
+    $image_id = $pokemon_id;?>
+    
 
+    <?php if(have_evolution($mysqli, $pokemon_id) != NULL): ?>
+        <button class= "Ver Evolução" type = "submit"><a href = <?php echo $url -> evolution_find($image_id) ?> >Ver Evolução</a></button>                
+    <?php endif; ?>             
 
     <form action = "index.php" >            
         <button class="voltar" type = "submit">Voltar</button>
     </form>    
 </body>
 </html>
+
+

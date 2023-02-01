@@ -19,25 +19,23 @@ $url = new url;
 
 $pokemon_id = $_GET["id"];
 
-list_all($mysqli, $pokemon_id);
+list_all($mysqli, $pokemon_id, $url);
 
-$previous_list = ($pokemon_id-8);
-$next_list = ($pokemon_id+8);
+$previous_list = ($pokemon_id-1);
+$next_list = ($pokemon_id+1);?>
 
-
-?>
 
 <form action = "index.php">
     <button class="voltar" type = "submit">Voltar</button>
 </form>
 
-<?php if( $pokemon_id > 8 ):?>
+<?php if( $pokemon_id > 1 ):?>
     <div class="card bg-secondary">
         <button><a href = <?php echo $url -> pokemon_list($previous_list); ?>><h3>Anterior</h3></a></button>   
     </div>
 <?php endif;?>  
 
-<?php if( $pokemon_id <= 143 ):?>
+<?php if( $pokemon_id < 19 ):?>
     <div class="card bg-secondary">
         <button><a href = <?php echo $url -> pokemon_list($next_list); ?>><h3>proximos</h3></a></button>   
     </div>
