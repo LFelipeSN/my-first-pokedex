@@ -98,17 +98,20 @@ function print_pokemon($row){
 
 
 function search_pokemon($mysqli, $name_search, $url){
-    $result = sql_consult($mysqli, $name_search);    
+    $result = sql_consult($mysqli, $name_search);
+    $found_pokemon = FALSE;    
 
-    if( isset($result) ){ 
-        while($row = mysqli_fetch_array($result)){
+    while( $row = mysqli_fetch_array($result) ){
             echo "<br/>";?>
             <button><h3><a href = <?php echo $url -> view($mysqli, $row["pokemon_id"]); ?>><?php echo $row ["name"]; ?> </a></h3></button>
             <?php echo "<br/>";  
-        }
-       return TRUE;
-    }
-    return FALSE;
+
+            if(!$found_pokemon){
+                $found_pokemon = TRUE; 
+            }
+        }        
+    
+    return $found_pokemon;    
 }
 
 
