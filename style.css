@@ -1,4 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+:root {
+    --verde-bg-color: rgba(132, 203, 157, 0.56);
+    --roxo-bg-color:rgb(94, 85, 132);
+    --vermelho-bg-color :rgba(189, 36, 61, 0.795);
+    --gelo-bg-color :rgba(248, 248, 255, 0.795);
+    --azul-bg-color:rgba(93, 186, 214, 0.795);
+  }
+  
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+}
+
+.verde{
+    background: rgba(132, 203, 157, 0.56);
+}
+.roxo{
+    background: rgb(94, 85, 132);
+}
 *{
     padding: 0;
     margin: 0;
@@ -60,52 +81,54 @@ body{
 }
 
 .card{
-    width: 40vh;
-    height: 40vh;
+    width: 50vh;
+    height: 50vh;
     border-radius: 15px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     text-align: center;
     padding: 10px;
-    margin-left: 82.5vh;
-    transition: 0.6s;  	
-    transform-style: preserve-3d;    	
-    position: relative; 
 }
-.alinhamento{
-    border: red 1px solid;
-}
+
 /* .card:hover{
     transition: 1s;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 } */
 
 /* ################## VIRAR CARD ##################*/
-.card-container{
-    perspective: 1000;
+#nome-pokemon{
+    color: rgb(7, 17, 11);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
     
 }
-.card-container:active .card, .card-container.active .card {  		
-    transform: rotateY(180deg);  	
-
+.tipos{
+    border-radius: 20px;
+    padding: 6px;
+    line-height: 21px;
+    background: var(--gelo-bg-color);
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    gap: 30px;
+ 
+}
+.ver-pokemon{
+    margin: 15px;
+}
+.ver-pokemon a{
+    text-decoration: none;
 }
 
-.frente, .tras {  	
-
-    backface-visibility: hidden;    	
+.botao-listar a{
+    color: white;
     text-align: center;
     padding: 10px;
-    margin: auto;
-    top: 0;  	
-    left: 0;  
-    position: absolute;
-}  
-.frente ,.tras ,.card-container{
-    width: 40vh;
-    height: 40vh;
-}  
-.tras {
-     z-index: 2; 
- }    
-.tras { 
-    transform: rotateY(180deg);
- }
+    text-decoration: none;
+}
+.botao-listar{
+    margin: 0 500px;
+}
+

@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+:root {
+    --verde-bg-color: rgba(132, 203, 157, 0.56);
+    --roxo-bg-color:rgb(94, 85, 132);
+    --vermelho-bg-color :rgba(189, 36, 61, 0.795);
+    --gelo-bg-color :rgba(248, 248, 255, 0.795);
+    --azul-bg-color:rgba(93, 186, 214, 0.795);
+  }
+  
 *{
     padding: 0;
     margin: 0;

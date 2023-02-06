@@ -1,0 +1,75 @@
+#pokedex{
+    margin: 0 400px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+.botao-azul{
+    margin: 15px 0 -5px 5px;
+    height: 50px;
+    width: 50px;
+    background-color: #3c55d5;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid white;
+}
+.lado-direito{
+    height: 400px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.lado-direito img{
+    width: 150px;
+    height: 150px;
+    margin: 0 40px 40px 40px;
+    background-color:white;
+    /* border: 5px solid rgb(0, 0, 0); */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+.lado-esquerdo{
+    height: 350px;
+    width: 250px;
+    margin-top:30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.lado-esquerdo #nome-pokemon{
+    width: 200px;
+    margin: 30px;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgba(17, 53, 17, 0.543);
+}
+
+.tipo-pokedex{
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    margin: auto;
+    width: 300px;
+    background-color: rgb(197, 241, 233);
+    border-radius: 10px;
+    height: 40px;
+    align-items: center;
+}
+.botoes-azuis{
+        display: flex;
+        flex-direction: row;
+        margin: 30px;
+        
+        
+}
+.linha1 div{
+        display: flex;
+        flex-direction: row;
+        width: 40px;
+        height: 30px;
+        background-color: rgb(78, 194, 215);
+        border: 1px solid black;
+}
+

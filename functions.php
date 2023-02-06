@@ -85,15 +85,26 @@ function view_pokemon($mysqli, $pokemon_id){
 
 
 function print_pokemon($row){
-    echo "<br/>";
-    echo $row["pokemon_id"]; 
-    echo " "; 
-    echo $row["name"];
-    echo "<br/>";
-    echo $row["type_1"];
-    echo " ";
-    echo $row["type_2"];
-    echo "<br/>"; 
+    ?>
+    <div id="nome-pokemon">
+    <?php
+        echo $row["name"];
+    ?>
+    </div>
+    
+    <div class="tipos">
+        <?php
+        echo $row["type_1"];
+        
+        if($row["type_2"] ):
+            echo " | ";
+            echo $row["type_2"];
+        endif  
+       
+        
+        ?>
+    </div>
+    <?php
 }
 
 
@@ -102,9 +113,9 @@ function search_pokemon($mysqli, $name_search, $url){
     $found_pokemon = FALSE;    
 
     while( $row = mysqli_fetch_array($result) ){
-            echo "<br/>";?>
+            ?>
             <button><h3><a href = <?php echo $url -> view($mysqli, $row["pokemon_id"]); ?>><?php echo $row ["name"]; ?> </a></h3></button>
-            <?php echo "<br/>";  
+            <?php  
 
             if(!$found_pokemon){
                 $found_pokemon = TRUE; 
@@ -118,18 +129,21 @@ function search_pokemon($mysqli, $name_search, $url){
 function list_all($mysqli, $pokemon_id, $url){
     $pokemon_id = id_pokemon_list($pokemon_id);
     
-    for($i=1 ; $i <= 8 ; $i++):            
+    for($i=1 ; $i <= 8 ; $i++): 
+                
         $result = sql_consult_id($mysqli, $pokemon_id); 
         $row = mysqli_fetch_array($result);?>
 
-        <img width="100" height="100" src = <?php echo image_find( $row["pokemon_id"] )?> alt="pokemon">
+        <div class="container justify-itens-center align-itens-center col-2 m-4 bg-secondary card">
+            
+            <img width="100" height="100" src = <?php echo image_find( $row["pokemon_id"] )?> alt="pokemon">
 
-        <?php print_pokemon($row) ;?>
+            <?php print_pokemon($row) ;?>
 
-        <button class= " " type = "submit"><a href = <?php echo $url -> view($mysqli, $row["pokemon_id"]); ?> >Ver Pokémon</a></button>    
-        
-        <?php echo "<br/>"; 
-            echo "<br/>";  
+            <button class="ver-pokemon btn btn-light"><a href = <?php echo $url -> view($mysqli, $row["pokemon_id"]); ?> >Ver Pokémon</a></button>   
+            
+        </div>   
+        <?php ;  
 
         $pokemon_id++;
 
