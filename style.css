@@ -29,7 +29,7 @@
 body{
     background-image: linear-gradient(rgba(222, 15, 15, 0.2), rgba(255, 255, 255, 0.2));
     background-repeat: no-repeat;
-    width: 100%;
+    width: 100%;/*tvlz isso tenho algo haver*/
     height: 100vh;
 }
 .titulo{
@@ -128,7 +128,16 @@ body{
     padding: 10px;
     text-decoration: none;
 }
+
 .botao-listar{
-    margin: 0 500px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
+/*obs: olhar ------.body------ */
 

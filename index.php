@@ -63,7 +63,7 @@
                     <div class="">
                         <p class="col-5 tipo-pokedex"><?php echo $index -> type1_index($mysqli);?> </p>   
                     </div>
-  
+                    
                 </div>
                 <div class="lado-esquerdo bg-danger">
                     <p id="nome-pokemon"><?php echo $index -> name_index($mysqli); ?> </p>
@@ -97,21 +97,19 @@
                     
                     </div>
                 </div>
-            </div>
-            
-            
-        </div>
-
-       
+            </div>  
+        
+                
+        </div>      
        
         
 
-    <button class="botao-listar btn bg-danger"><a href = <?php echo $url -> pokemon_list() ?>>Listar todos os pokémons </a></button>     
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    
-    
-    
+
+    <footer>
+        <button class="botao-listar btn bg-danger"><a href = <?php echo $url -> pokemon_list() ?>>Listar todos os pokémons </a></button>             
+    </footer>    
 </body>
 
 </html>
