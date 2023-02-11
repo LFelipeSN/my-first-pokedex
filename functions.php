@@ -1,5 +1,5 @@
 <?php
- include("../connect_to_database.php");
+ include("connect_to_lowerUser.php");
 
 class index {
     public int $rand;    
