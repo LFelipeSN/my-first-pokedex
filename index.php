@@ -13,9 +13,9 @@
 </head>
 
 <body>
-    <?php include("connect_to_lowerUser.php");
-          include("functions.php");
-          $rand = mt_rand(1, 151); 
+    <?php require("../connect_to_database.php");
+          require("functions.php");
+          $rand = 34/* mt_rand(1, 151)*/; 
           $url = New url;
           $index = New index($rand);?>
 
@@ -31,7 +31,7 @@
         <div class="container alinhamento align-itens-center">
             <div id="pesquisa" class="align-itens-center">
                 <form action="search_pokemon.php" method="GET">
-                    <input class="caixa-pesquisa" type="text" placeholder="Insira o nome do pokémon " name="name_pokemon" />
+                    <input class="caixa-pesquisa" type="text" placeholder="Insira o nome do pokémon " name="name_pokemon" required/>
                     <button class="icone-pesquisa" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
 
                 </form>
@@ -39,15 +39,15 @@
 
             <!-- <div class="col-md-5" >
                 <div class="col-5 container bg-secondary align-itens-center ">
-                        <img width="150" height="150" src= <?php echo image_find($rand); ?>  alt="pokemon">
-                        <p id="nome-pokemon"><?php echo $index -> name_index($mysqli); ?> </p>
+                        <img width="150" height="150" src= <? #php echo image_find($rand); ?>  alt="pokemon">
+                        <p id="nome-pokemon"><?#php echo $index -> name_index($mysqli); ?> </p>
                         <div class="row tipos">
-                            <p class="col tipo"><?php echo $index -> type1_index($mysqli);?> </p>
-                                <?php if( $index -> type2_index($mysqli) ):?>
-                            <p class="col tipo"> <?php echo $index -> type2_index($mysqli);?> </p>
-                                <?php endif;?>  
+                            <p class="col tipo"><?#php echo $index -> type1_index($mysqli);?> </p>
+                                <?php #if( $index -> type2_index($mysqli) ):?>
+                            <p class="col tipo"> <?php #echo $index -> type2_index($mysqli);?> </p>
+                                <?php #endif;?>  
                          </div>
-
+                        
                 </div>
             </div>  -->
             <div id="pokedex">
@@ -55,13 +55,16 @@
                     <div class="botao-azul">
                       
                     </div>
-                    <hr>
+                    <hr> <!--me explica isso aqui-->
                     <div class="foto-poke">
-                        <img width="150" height="150" src= <?php echo image_find($rand); ?>  alt="pokemon">
+                        <img width="150" height="150" src= <?php echo $index -> image_index(); ?>  alt="pokemon">
                     </div>
         
                     <div class="">
-                        <p class="col-5 tipo-pokedex"><?php echo $index -> type1_index($mysqli);?> </p>   
+                        <p class="col-5 tipo-pokedex" id= <?php echo $index -> color_type1_index($mysqli);?> > <?php echo $index -> type1_index($mysqli);?> </p> 
+                            <?php if( $index -> type2_index($mysqli) ):?>
+                        <p class="col-5 tipo-pokedex" id= <?php echo $index -> color_type2_index($mysqli);?> > <?php echo $index -> type2_index($mysqli);?> </p>
+                            <?php endif;?> 
                     </div>
                     
                 </div>
@@ -108,7 +111,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     <footer>
-        <button class="botao-listar btn bg-danger"><a href = <?php echo $url -> pokemon_list() ?>>Listar todos os pokémons </a></button>             
+        <div class="container-botao-listar">
+            <button class="botao-listar btn bg-danger"><a href = <?php echo $url -> pokemon_list() ?>>Listar todos os pokémons </a></button>             
+        </div> 
     </footer>    
 </body>
 

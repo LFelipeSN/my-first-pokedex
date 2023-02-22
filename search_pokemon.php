@@ -8,8 +8,8 @@
 </head>
 <body>    
     <?php 
-    include("connect_to_lowerUser.php");
-    include("functions.php");
+    require("../connect_to_database.php");
+    require("functions.php");
     $url = new url;
 
     $name_search = $_GET["name_pokemon"];

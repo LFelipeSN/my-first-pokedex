@@ -29,9 +29,12 @@
 body{
     background-image: linear-gradient(rgba(222, 15, 15, 0.2), rgba(255, 255, 255, 0.2));
     background-repeat: no-repeat;
-    width: 100%;/*tvlz isso tenho algo haver*/
+    background-size: cover;/*add*/
+    width: 200vh;/*modifiqued*/
     height: 100vh;
 }
+
+
 .titulo{
     align-items: center;
     justify-content: center;
@@ -115,6 +118,7 @@ body{
     gap: 30px;
  
 }
+
 .ver-pokemon{
     margin: 15px;
 }
@@ -129,15 +133,14 @@ body{
     text-decoration: none;
 }
 
-.botao-listar{
-    /* display: flex;
+.container-botao-listar{/*add*/
+    display: flex;
     align-items: center;
-    justify-content: center; */
+    justify-content: center;
+}/*obs: olhar ------.body------ */
 
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
 
+#color-type-Poison{/*ADD*/
+    background:rgba(189, 36, 61, 0.795);
 }
-/*obs: olhar ------.body------ */
 

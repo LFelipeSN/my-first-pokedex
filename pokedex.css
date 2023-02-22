@@ -1,7 +1,8 @@
 #pokedex{
-    margin: 0 400px;
+    /* margin: 0 400px; */ /*modifiqued*/
     display: flex;
     flex-direction: row;
+    justify-content: center;/*modifiqued*/
     padding: 10px;
     border-radius: 10px;
     
@@ -57,6 +58,7 @@
     height: 40px;
     align-items: center;
 }
+
 .botoes-azuis{
         display: flex;
         flex-direction: row;

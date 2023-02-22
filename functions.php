@@ -1,5 +1,5 @@
 <?php
- include("connect_to_lowerUser.php");
+ require("../connect_to_database.php");
 
 class index {
     public int $rand;    
@@ -14,19 +14,29 @@ class index {
         return $row["name"];
     }
     
-    
+    function image_index(){ /* temporary function*/
+        return "./imagens/improved_version/id(".$this->rand.").png"; 
+    }
+
     function type1_index($mysqli){
         $result = sql_consult_id($mysqli, $this->rand);
         $row = mysqli_fetch_array($result);
         return $row["type_1"];
-    }
-    
+    }    
     
     function type2_index($mysqli){
         $result = sql_consult_id($mysqli, $this->rand);
         $row = mysqli_fetch_array($result);
         return $row["type_2"];
     }    
+
+    function color_type1_index($mysqli){
+        return "color-type-".$this->type1_index($mysqli);
+    }   
+
+    function color_type2_index($mysqli){
+        return "color-type-".$this->type2_index($mysqli);
+    }   
 }
 
 
