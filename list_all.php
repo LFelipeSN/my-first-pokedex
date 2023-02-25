@@ -14,14 +14,15 @@
 <body class="">
 <?php
 require("functions.php");
-$url = new url;
+$url = new Url;
+$list = new List_all;
 
 $pokemon_id = $_GET["id"];
 ?>
 
 <div class="container listar-todos">
     <?php
-    list_all($pokemon_id, $url);
+        $list->list_all($pokemon_id, $url);
     ?>
 </div>
 <?php
