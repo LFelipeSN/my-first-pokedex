@@ -15,7 +15,7 @@
 <body>
     <?php require("../connect_to_database.php");
           require("functions.php");
-          $rand = 34/* mt_rand(1, 151)*/; 
+          $rand =  mt_rand(1, 151); 
           $url = New url;
           $index = New index($rand);?>
 
@@ -55,15 +55,15 @@
                     <div class="botao-azul">
                       
                     </div>
-                    <hr> <!--me explica isso aqui-->
+                    <hr> <!--o html faz uma linha horizontal na página-->
                     <div class="foto-poke">
                         <img width="150" height="150" src= <?php echo $index -> image_index(); ?>  alt="pokemon">
                     </div>
         
-                    <div class="">
-                        <p class="col-5 tipo-pokedex" id= <?php echo $index -> color_type1_index($mysqli);?> > <?php echo $index -> type1_index($mysqli);?> </p> 
+                    <div class="row">
+                        <p class="col-4 tipo-pokedex" id= <?php echo $index -> color_type1_index($mysqli);?> > <?php echo $index -> type1_index($mysqli);?> </p> 
                             <?php if( $index -> type2_index($mysqli) ):?>
-                        <p class="col-5 tipo-pokedex" id= <?php echo $index -> color_type2_index($mysqli);?> > <?php echo $index -> type2_index($mysqli);?> </p>
+                        <p class="col-4 tipo-pokedex" id= <?php echo $index -> color_type2_index($mysqli);?> > <?php echo $index -> type2_index($mysqli);?> </p>
                             <?php endif;?> 
                     </div>
                     
@@ -74,28 +74,26 @@
                         <div class="linha1">
                             <div></div>
                             <div></div>
-                            
                         </div>
     
                         <div class="linha1">
                             <div></div>
-                            <div></div>
-                            
+                            <div></div>     
                         </div>
+
                         <div class="linha1">
                             <div></div>
                             <div></div>
-                            
                         </div>
+
                         <div class="linha1">
                             <div></div>
                             <div></div>
-                            
                         </div>
+
                         <div class="linha1">
                             <div></div>
                             <div></div>
-                            
                         </div>
                     
                     </div>

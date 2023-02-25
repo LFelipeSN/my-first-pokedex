@@ -61,17 +61,15 @@ body{
     text-align: center;
     margin-bottom: 30px;
     background: #D9D9D9; 
-    backdrop-filter: blur(2px);
-    
-    
+    backdrop-filter: blur(2px);       
 }
+
 .icone-pesquisa,.caixa-pesquisa{
     height: 2rem; 
     border: none;
-    border-radius: 30px;
-   
-    
+    border-radius: 30px;  
 }
+
 .icone-pesquisa{
     position:absolute;
     margin-left: -22px;
@@ -92,19 +90,13 @@ body{
     padding: 10px;
 }
 
-/* .card:hover{
-    transition: 1s;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-} */
-
-/* ################## VIRAR CARD ##################*/
 #nome-pokemon{
     color: rgb(7, 17, 11);
     font-weight: 600;
     font-size: 24px;
-    line-height: 36px;
-    
+    line-height: 36px;   
 }
+
 .tipos{
     border-radius: 20px;
     padding: 6px;
@@ -116,12 +108,12 @@ body{
     margin: 10px;
     justify-content: center;
     gap: 30px;
- 
 }
 
 .ver-pokemon{
     margin: 15px;
 }
+
 .ver-pokemon a{
     text-decoration: none;
 }
@@ -139,8 +131,7 @@ body{
     justify-content: center;
 }/*obs: olhar ------.body------ */
 
-
 #color-type-Poison{/*ADD*/
-    background:rgba(189, 36, 61, 0.795);
+    background: var(--roxo-bg-color);
 }
 

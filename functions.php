@@ -124,7 +124,7 @@ function search_pokemon($mysqli, $name_search, $url){
 
     while( $row = mysqli_fetch_array($result) ){
             ?>
-            <button><h3><a href = <?php echo $url -> view($mysqli, $row["pokemon_id"]); ?>><?php echo $row ["name"]; ?> </a></h3></button>
+            <button><a href = <?php echo $url -> view($mysqli, $row["pokemon_id"]); ?>><?php echo $row ["name"]; ?> </a></button>
             <?php  
 
             if(!$found_pokemon){
