@@ -115,6 +115,7 @@ class List_all{
                 <button class="ver-pokemon btn btn-light"><a href = <?php echo $url -> view($row["pokemon_id"]); ?> >Ver Pokémon</a></button>   
                 
             </div>   
+           
             <?php ;  
     
             $pokemon_id++;
