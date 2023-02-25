@@ -18,7 +18,7 @@
           $url = New Url;
           $index = New Index($rand);?>
 
-    <div class="container p-3 align-items-center align-text-center">
+    <div class="container-fluid p-3 align-items-center align-text-center">
         <div class="titulo">
             <div class="">
                 <h1>Pokédex </h1>
@@ -27,7 +27,7 @@
         </div>
 
 
-        <div class="container alinhamento align-itens-center">
+        <div class="container-fluid alinhamento align-itens-center">
             <div id="pesquisa" class="align-itens-center">
                 <form action="search_pokemon.php" method="GET">
                     <input class="caixa-pesquisa" type="text" placeholder="Insira o nome do pokémon " name="name_pokemon" required/>
@@ -36,19 +36,7 @@
                 </form>
             </div>
 
-            <!-- <div class="col-md-5" >
-                <div class="col-5 container bg-secondary align-itens-center ">
-                        <img width="150" height="150" src= <? #php echo image_find($rand); ?>  alt="pokemon">
-                        <p id="nome-pokemon"><?#php echo $index -> name_index($mysqli); ?> </p>
-                        <div class="row tipos">
-                            <p class="col tipo"><?#php echo $index -> type1_index($mysqli);?> </p>
-                                <?php #if( $index -> type2_index($mysqli) ):?>
-                            <p class="col tipo"> <?php #echo $index -> type2_index($mysqli);?> </p>
-                                <?php #endif;?>  
-                         </div>
-                        
-                </div>
-            </div>  -->
+    
             <div id="pokedex">
                 <div class="lado-direito bg-danger">
                     <div class="botao-azul">
@@ -60,9 +48,9 @@
                     </div>
         
                     <div class="row">
-                        <p class="col-4 tipo-pokedex" id= <?php echo $index -> color_type1_index();?> > <?php echo $index -> type1_index();?> </p> 
+                        <button class="col-4 tipo-pokedex" id= <?php echo $index -> color_type1_index();?> > <?php echo $index -> type1_index();?> </button> 
                             <?php if( $index -> type2_index() ):?>
-                        <p class="col-4 tipo-pokedex" id= <?php echo $index -> color_type2_index();?> > <?php echo $index -> type2_index();?> </p>
+                        <button class="col-4 tipo-pokedex" id= <?php echo $index -> color_type2_index();?> > <?php echo $index -> type2_index();?> </button>
                             <?php endif;?> 
                     </div>
                     

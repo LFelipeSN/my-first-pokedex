@@ -145,7 +145,7 @@ function list_all($G_mysqli, $pokemon_id, $url){
         $result = sql_consult_id($G_mysqli, $pokemon_id); 
         $row = mysqli_fetch_array($result);?>
 
-        <div class="container justify-itens-center align-itens-center col-2 m-4 bg-secondary card">
+        <div class="justify-itens-center align-itens-center col-2 m-4 bg-secondary card">
             
             <img width="100" height="100" src = <?php echo image_find( $row["pokemon_id"] )?> alt="pokemon">
 
