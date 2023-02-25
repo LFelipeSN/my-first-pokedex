@@ -13,7 +13,6 @@
 
 <body>
 <?php
-require("../connect_to_database.php");
 require("functions.php");
 $url = new url;
 
@@ -22,7 +21,7 @@ $pokemon_id = $_GET["id"];
 
 <div class=" justify-itens-center align-itens-center row container">
     <?php
-    list_all($mysqli, $pokemon_id, $url);
+    list_all($pokemon_id, $url);
     ?>
 </div>
 <?php

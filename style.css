@@ -30,7 +30,7 @@ body{
     background-image: linear-gradient(rgba(222, 15, 15, 0.2), rgba(255, 255, 255, 0.2));
     background-repeat: no-repeat;
     background-size: cover;/*add*/
-    width: 200vh;/*modifiqued*/
+    width: 100vw;
     height: 100vh;
 }
 

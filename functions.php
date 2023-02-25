@@ -1,15 +1,17 @@
 <?php
- require("../connect_to_database.php");
+include("../connect_to_database.php");
 
-class index {
-    public int $rand;    
+$G_mysqli = database();
+
+class Index{
+    public int $rand;
    
     function __construct($rand) {
         $this->rand = $rand;
     }
 
-    function name_index($mysqli){
-        $result = sql_consult_id($mysqli, $this->rand);
+    function name_index(){
+        $result = sql_consult_id($G_mysqli, $this->rand);
         $row = mysqli_fetch_array($result);
         return $row["name"];
     }
@@ -18,29 +20,29 @@ class index {
         return "./imagens/improved_version/id(".$this->rand.").png"; 
     }
 
-    function type1_index($mysqli){
-        $result = sql_consult_id($mysqli, $this->rand);
+    function type1_index(){
+        $result = sql_consult_id($G_mysqli, $this->rand);
         $row = mysqli_fetch_array($result);
         return $row["type_1"];
     }    
     
-    function type2_index($mysqli){
-        $result = sql_consult_id($mysqli, $this->rand);
+    function type2_index(){
+        $result = sql_consult_id($G_mysqli, $this->rand);
         $row = mysqli_fetch_array($result);
         return $row["type_2"];
     }    
 
-    function color_type1_index($mysqli){
-        return "color-type-".$this->type1_index($mysqli);
+    function color_type1_index(){
+        return "color-type-".$this->type1_index();
     }   
 
-    function color_type2_index($mysqli){
-        return "color-type-".$this->type2_index($mysqli);
+    function color_type2_index(){
+        return "color-type-".$this->type2_index();
     }   
 }
 
 
-class url {    
+class Url{    
 
     function evolution_find($pokemon_id){
         return "pokemon_evolution.php?id=". $pokemon_id;
@@ -50,14 +52,13 @@ class url {
         return "list_all.php?id=". $pokemon_id;
     }
     
-    function pokemon_find($mysqli, $pokemon_id){
-        $result = sql_consult_id($mysqli, $pokemon_id);
+    function pokemon_find($pokemon_id){
+        $result = sql_consult_id($this->mysqli, $pokemon_id);
         $row = mysqli_fetch_array($result);
-        return "search_pokemon.php?name_pokemon=" . $row["name"];
-    
+        return "search_pokemon.php?name_pokemon=" . $row["name"];    
     }
 
-    function view($mysqli, $pokemon_id){
+    function view($pokemon_id){
         return "view_pokemon.php?id=" . $pokemon_id;
     }
 }
@@ -68,8 +69,8 @@ function image_find($image_id){
 }
 
 
-function have_evolution($mysqli, $image_id){
-    $result = sql_consult_id($mysqli, $image_id);
+function have_evolution($G_mysqli, $image_id){
+    $result = sql_consult_id($G_mysqli, $image_id);
     $row =  mysqli_fetch_array($result);  
 
     return isset( $row["evolution_line"] );  ;
@@ -82,8 +83,8 @@ function id_pokemon_list($n){ #Atráves de uma PA calcula o id do pokemon inicia
 }
 
 
-function view_pokemon($mysqli, $pokemon_id){
-    $result = sql_consult_id($mysqli, $pokemon_id); 
+function view_pokemon($G_mysqli, $pokemon_id){
+    $result = sql_consult_id($G_mysqli, $pokemon_id); 
     $row = mysqli_fetch_array($result);
 
     $image_id =  $row["pokemon_id"]; ?>
@@ -118,13 +119,13 @@ function print_pokemon($row){
 }
 
 
-function search_pokemon($mysqli, $name_search, $url){
-    $result = sql_consult($mysqli, $name_search);
+function search_pokemon($G_mysqli, $name_search, $url){
+    $result = sql_consult($G_mysqli, $name_search);
     $found_pokemon = FALSE;    
 
     while( $row = mysqli_fetch_array($result) ){
             ?>
-            <button><a href = <?php echo $url -> view($mysqli, $row["pokemon_id"]); ?>><?php echo $row ["name"]; ?> </a></button>
+            <button><a href = <?php echo $url -> view($G_mysqli, $row["pokemon_id"]); ?>><?php echo $row ["name"]; ?> </a></button>
             <?php  
 
             if(!$found_pokemon){
@@ -136,12 +137,12 @@ function search_pokemon($mysqli, $name_search, $url){
 }
 
 
-function list_all($mysqli, $pokemon_id, $url){
+function list_all($G_mysqli, $pokemon_id, $url){
     $pokemon_id = id_pokemon_list($pokemon_id);
     
     for($i=1 ; $i <= 8 ; $i++): 
                 
-        $result = sql_consult_id($mysqli, $pokemon_id); 
+        $result = sql_consult_id($G_mysqli, $pokemon_id); 
         $row = mysqli_fetch_array($result);?>
 
         <div class="container justify-itens-center align-itens-center col-2 m-4 bg-secondary card">
@@ -150,7 +151,7 @@ function list_all($mysqli, $pokemon_id, $url){
 
             <?php print_pokemon($row) ;?>
 
-            <button class="ver-pokemon btn btn-light"><a href = <?php echo $url -> view($mysqli, $row["pokemon_id"]); ?> >Ver Pokémon</a></button>   
+            <button class="ver-pokemon btn btn-light"><a href = <?php echo $url -> view($G_mysqli, $row["pokemon_id"]); ?> >Ver Pokémon</a></button>   
             
         </div>   
         <?php ;  
@@ -164,12 +165,12 @@ function list_all($mysqli, $pokemon_id, $url){
 }
 
 
-function go_evolution($mysqli, $pokemon_id, $url){
+function go_evolution($G_mysqli, $pokemon_id, $url){
 
-    $consult = sql_consult_id($mysqli, $pokemon_id);
+    $consult = sql_consult_id($G_mysqli, $pokemon_id);
     $evolution_line = mysqli_fetch_array($consult);
 
-    $result = sql_consult($mysqli);
+    $result = sql_consult($G_mysqli);
 
     while( $row = mysqli_fetch_array($result) ):
         if( isset($row["evolution_line"]) && isset($evolution_line["evolution_line"]) ):
@@ -178,7 +179,7 @@ function go_evolution($mysqli, $pokemon_id, $url){
 
                 <?php print_pokemon($row) ?>
 
-                      <button class= " " type = "submit"><a href =<?php echo $url -> view($mysqli, $row["pokemon_id"]); ?> >Ver Pokémon</a></button>   
+                      <button class= " " type = "submit"><a href =<?php echo $url -> view($G_mysqli, $row["pokemon_id"]); ?> >Ver Pokémon</a></button>   
 
                 <?php echo "<br/>";
                       echo "<br/>";       
@@ -188,15 +189,15 @@ function go_evolution($mysqli, $pokemon_id, $url){
 }
 
 
-function sql_consult($mysqli, $name_search = ""){
-    mysqli_select_db($mysqli, 'pokedex'); 
+function sql_consult($G_mysqli, $name_search = ""){
+    mysqli_select_db($G_mysqli, 'pokedex'); 
 
     if($name_search == ""){
         $sql = "SELECT * FROM pokemon";
-        $result = mysqli_query($mysqli, $sql);
+        $result = mysqli_query($G_mysqli, $sql);
 
     }else {        
-        $stmt = mysqli_prepare($mysqli, "SELECT * FROM pokemon WHERE name LIKE CONCAT(?, '%') ");
+        $stmt = mysqli_prepare($G_mysqli, "SELECT * FROM pokemon WHERE name LIKE CONCAT(?, '%') ");
         mysqli_stmt_bind_param($stmt, "s", $name_search);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
@@ -205,10 +206,10 @@ function sql_consult($mysqli, $name_search = ""){
 }
 
 
-function sql_consult_id($mysqli, $pokemon_id){
-    mysqli_select_db($mysqli, 'pokedex');
+function sql_consult_id($G_mysqli, $pokemon_id){
+    mysqli_select_db($G_mysqli, 'pokedex');
       
-    $stmt = mysqli_prepare($mysqli, "SELECT * FROM pokemon WHERE pokemon_id=?");
+    $stmt = mysqli_prepare($G_mysqli, "SELECT * FROM pokemon WHERE pokemon_id=?");
     mysqli_stmt_bind_param($stmt, "i", $pokemon_id);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);     
