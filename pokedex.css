@@ -5,6 +5,7 @@
     justify-content: center;/*modifiqued*/
     padding: 10px;
     border-radius: 10px;
+    z-index: 0;
     
 }
 .botao-azul{
@@ -47,17 +48,18 @@
     background-color: rgba(17, 53, 17, 0.543);
 }
 
-.tipo-pokedex{
+ .tipo-pokedex{
     justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 15px;
     margin: auto;
     width: 300px;
-    background-color: rgb(197, 241, 233);
-    border-radius: 10px;
-    height: 40px;
-    align-items: center;
-}
+    background-color: rgb(248, 250, 249);
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    
+} 
 
 .botoes-azuis{
         display: flex;

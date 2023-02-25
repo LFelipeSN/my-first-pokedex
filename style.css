@@ -1,10 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 :root {
-    --verde-bg-color: rgba(132, 203, 157, 0.56);
+    --verde-bg-color: rgba(96, 241, 147, 0.678);
     --roxo-bg-color:rgb(94, 85, 132);
-    --vermelho-bg-color :rgba(189, 36, 61, 0.795);
-    --gelo-bg-color :rgba(248, 248, 255, 0.795);
+    --vermelho-bg-color :rgba(148, 5, 5, 0.97);
+    --laranja-bg-color :rgba(219, 112, 25, 0.858);
+    --gelo-bg-color :rgba(160, 160, 237, 0.963);
     --azul-bg-color:rgba(93, 186, 214, 0.795);
+    --azul-claro-bg-color:rgba(134, 213, 236, 0.925);
+    --amarelo-bg-color:rgba(208, 220, 30, 0.795);
+    --marrom-bg-color:rgba(150, 75, 0, 0.795);
+    --marrom-acizentado-bg-color:rgba(250, 176, 101, 0.842);
+    --rosa-bg-color:rgba(201, 33, 207, 0.795);
+    --roxo-escuro-bg-color:rgba(106, 61, 154, 0.87);
+    --aco-bg-color:rgba(102, 101, 102, 0.963);
+
   }
   
 *{
@@ -20,17 +29,12 @@
 .roxo{
     background: rgb(94, 85, 132);
 }
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Poppins;
-}
+
 body{
     background-image: linear-gradient(rgba(222, 15, 15, 0.2), rgba(255, 255, 255, 0.2));
     background-repeat: no-repeat;
     background-size: cover;/*add*/
-    width: 200vh;/*modifiqued*/
+    width: 100vw;/*modifiqued*/
     height: 100vh;
 }
 
@@ -87,6 +91,7 @@ body{
     border-radius: 15px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     text-align: center;
+    align-items: center;
     padding: 10px;
 }
 
@@ -97,18 +102,20 @@ body{
     line-height: 36px;   
 }
 
-.tipos{
+/* .tipos{
+    z-index: 1;
     border-radius: 20px;
-    padding: 6px;
+    padding: 10px;
     line-height: 21px;
     background: var(--gelo-bg-color);
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
     display: flex;
     margin: 10px;
     justify-content: center;
-    gap: 30px;
-}
+    text-align: center;
+    
+} */
 
 .ver-pokemon{
     margin: 15px;
@@ -134,4 +141,54 @@ body{
 #color-type-Poison{/*ADD*/
     background: var(--roxo-bg-color);
 }
+#color-type-Fire , #color-type-Dragon{/*ADD*/
+    background: var(--vermelho-bg-color);
+    color : white;
+}
+#color-type-Water{/*ADD*/
+    background: var(--azul-bg-color);
+}
+#color-type-Electric{/*ADD*/
+    background: var(--amarelo-bg-color);
+}
+#color-type-Grass, #color-type-Bug{/*ADD*/
+    background: var(--verde-bg-color);
+}
+#color-type-Flying{/*ADD*/
+    background: var(--azul-claro-bg-color);
+}
+#color-type-Ground{/*ADD*/
+    background: var(--marrom-bg-color);
+}
+#color-type-Psychic{/*ADD*/
+    background: var(--roxo-escuro-bg-color);
+}
+#color-type-Fighting{/*ADD*/
+    background: var(--laranja-bg-color);
+}
+#color-type-Fairy{/*ADD*/
+    background: var(--rosa-bg-color);
+}
+#color-type-Rock{/*ADD*/
+    background: var(--marrom-acizentado-bg-color);
+}
+#color-type-Steel{/*ADD*/
+    background: var(--aco-bg-color);
+}
 
+
+.listar-todos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+.barra-navegacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+}
