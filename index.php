@@ -84,6 +84,13 @@
                         </div>
                     
                     </div>
+
+                    <div class="row">
+                        <button class="col-4 tipo-pokedex" id= <?php echo $index -> color_type1_index($mysqli);?> > <?php echo $index -> type1_index($mysqli);?> </button> 
+                            <?php if( $index -> type2_index($mysqli) ):?>
+                        <button class="col-4 tipo-pokedex" id= <?php echo $index -> color_type2_index($mysqli);?> > <?php echo $index -> type2_index($mysqli);?> </button>
+                            <?php endif;?> 
+                    </div>
                 </div>
             </div>  
         

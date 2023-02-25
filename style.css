@@ -31,13 +31,19 @@
 }
 
 body{
-    background-image: linear-gradient(rgba(222, 15, 15, 0.2), rgba(255, 255, 255, 0.2));
+    background-image: linear-gradient(rgba(157, 212, 224, 0.674), rgba(161, 236, 205, 0.852));
     background-repeat: no-repeat;
     background-size: cover;/*add*/
     width: 100vw;/*modifiqued*/
     height: 100vh;
 }
-
+header{
+    display: flex;
+    width: 98vw;
+    justify-content: flex-end;
+    /* margin: 0 0 5px 5px; */
+    padding: 10px;
+}
 
 .titulo{
     align-items: center;
@@ -85,14 +91,17 @@ body{
     outline: none;
 }
 
-.card{
-    width: 50vh;
-    height: 50vh;
+.card-poke{
+    box-sizing: content-box;
+    width: 25vw;
+    height: 36vh;
     border-radius: 15px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 4px 4px 12px 1px  rgba(10, 91, 116, 0.38),inset 1px 1px 6px 1px  rgba(229, 241, 245, 0.557);
     text-align: center;
     align-items: center;
     padding: 10px;
+    background-image: linear-gradient(rgba(163, 229, 244, 0.674), rgba(123, 168, 237, 0.852))
+    
 }
 
 #nome-pokemon{
@@ -118,11 +127,20 @@ body{
 } */
 
 .ver-pokemon{
-    margin: 15px;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background: none;
+    display: inline;
+    vertical-align: bottom;
+    align-content: end;
+    
 }
 
 .ver-pokemon a{
     text-decoration: none;
+    color: white;
+    
 }
 
 .botao-listar a{
@@ -138,41 +156,41 @@ body{
     justify-content: center;
 }/*obs: olhar ------.body------ */
 
-#color-type-Poison{/*ADD*/
+#color-type-Poison{
     background: var(--roxo-bg-color);
 }
-#color-type-Fire , #color-type-Dragon{/*ADD*/
+#color-type-Fire , #color-type-Dragon{
     background: var(--vermelho-bg-color);
     color : white;
 }
-#color-type-Water{/*ADD*/
+#color-type-Water{
     background: var(--azul-bg-color);
 }
-#color-type-Electric{/*ADD*/
+#color-type-Electric{
     background: var(--amarelo-bg-color);
 }
-#color-type-Grass, #color-type-Bug{/*ADD*/
+#color-type-Grass, #color-type-Bug{
     background: var(--verde-bg-color);
 }
-#color-type-Flying{/*ADD*/
+#color-type-Flying{
     background: var(--azul-claro-bg-color);
 }
-#color-type-Ground{/*ADD*/
+#color-type-Ground{
     background: var(--marrom-bg-color);
 }
-#color-type-Psychic{/*ADD*/
+#color-type-Psychic{
     background: var(--roxo-escuro-bg-color);
 }
-#color-type-Fighting{/*ADD*/
+#color-type-Fighting{
     background: var(--laranja-bg-color);
 }
-#color-type-Fairy{/*ADD*/
+#color-type-Fairy{
     background: var(--rosa-bg-color);
 }
-#color-type-Rock{/*ADD*/
+#color-type-Rock{
     background: var(--marrom-acizentado-bg-color);
 }
-#color-type-Steel{/*ADD*/
+#color-type-Steel{
     background: var(--aco-bg-color);
 }
 
@@ -187,8 +205,23 @@ body{
 }
 .barra-navegacao{
     display: flex;
+    flex-direction: row;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     text-align: center;
+    
+    
+}
+.botao-navegacao a {
+   color: white;
+}
+.botao-navegacao{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
     text-decoration: none;
+    background-color:#E02222;
+    color: white;
 }
