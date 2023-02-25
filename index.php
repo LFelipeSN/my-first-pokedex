@@ -13,11 +13,10 @@
 </head>
 
 <body>
-    <?php require("../connect_to_database.php");
-          require("functions.php");
+    <?php require("functions.php");
           $rand =  mt_rand(1, 151); 
-          $url = New url;
-          $index = New index($rand);?>
+          $url = New Url;
+          $index = New Index($rand);?>
 
     <div class="container-fluid p-3 align-items-center align-text-center">
         <div class="titulo">
@@ -47,10 +46,17 @@
                     <div class="foto-poke">
                         <img width="150" height="150" src= <?php echo $index -> image_index(); ?>  alt="pokemon">
                     </div>
-           
+        
+                    <div class="row">
+                        <button class="col-4 tipo-pokedex" id= <?php echo $index -> color_type1_index();?> > <?php echo $index -> type1_index();?> </button> 
+                            <?php if( $index -> type2_index() ):?>
+                        <button class="col-4 tipo-pokedex" id= <?php echo $index -> color_type2_index();?> > <?php echo $index -> type2_index();?> </button>
+                            <?php endif;?> 
+                    </div>
+                    
                 </div>
                 <div class="lado-esquerdo bg-danger">
-                    <p id="nome-pokemon"><?php echo $index -> name_index($mysqli); ?> </p>
+                    <p id="nome-pokemon"><?php echo $index -> name_index(); ?> </p>
                     <div class="botoes-azuis">
                         <div class="linha1">
                             <div></div>

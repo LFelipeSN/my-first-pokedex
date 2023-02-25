@@ -28,12 +28,12 @@
     $pokemon_id = $_GET["id"];
     ?>
 
-    <div class="container listar-todos">
-        <?php
-        list_all($mysqli, $pokemon_id, $url);
-        ?>
-    </div>
+<div class="container listar-todos">
     <?php
+        $list->list_all($pokemon_id, $url);
+    ?>
+</div>
+<?php
 
     $previous_list = ($pokemon_id-1);
     $next_list = ($pokemon_id+1);?>
