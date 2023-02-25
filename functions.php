@@ -1,7 +1,8 @@
 <?php
 include("../connect_to_database.php");
 
-$mysqli = database();
+$database = database();
+$mysqli = $database;
 
 class Index{
     public int $rand;
@@ -77,7 +78,7 @@ class View{
     }
 }
 
-class Search_pokemon{
+class Search{
     function search_pokemon($name_search, $url){
 
         $result = sql_consult($name_search);
@@ -127,12 +128,12 @@ class List_all{
 }
 
 
-function go_evolution($mysqli, $pokemon_id, $url){
+function go_evolution($pokemon_id, $url){
 
-    $consult = sql_consult_id($mysqli, $pokemon_id);
+    $consult = sql_consult_id($pokemon_id);
     $evolution_line = mysqli_fetch_array($consult);
 
-    $result = sql_consult($mysqli);
+    $result = sql_consult();
 
     while( $row = mysqli_fetch_array($result) ):
         if( isset($row["evolution_line"]) && isset($evolution_line["evolution_line"]) ):
@@ -141,7 +142,7 @@ function go_evolution($mysqli, $pokemon_id, $url){
 
                 <?php print_pokemon($row) ?>
 
-                      <button class= " " type = "submit"><a href =<?php echo $url -> view($mysqli, $row["pokemon_id"]); ?> >Ver Pokémon</a></button>   
+                      <button class= " " type = "submit"><a href =<?php echo $url -> view($row["pokemon_id"]); ?> >Ver Pokémon</a></button>   
 
                 <?php echo "<br/>";
                       echo "<br/>";       
@@ -151,7 +152,9 @@ function go_evolution($mysqli, $pokemon_id, $url){
 }
 
 
-function sql_consult($mysqli, $name_search = ""){
+function sql_consult($name_search = ""){
+    GLOBAL $mysqli;
+
     mysqli_select_db($mysqli, 'pokedex'); 
 
     if($name_search == ""){
@@ -169,7 +172,7 @@ function sql_consult($mysqli, $name_search = ""){
 
 
 function sql_consult_id($pokemon_id){
-    Global $mysqli;
+    GLOBAL $mysqli;
 
     mysqli_select_db($mysqli, 'pokedex');
 
@@ -187,8 +190,8 @@ function image_find($image_id){
 }
 
 
-function have_evolution($mysqli, $image_id){
-    $result = sql_consult_id($mysqli, $image_id);
+function have_evolution($image_id){
+    $result = sql_consult_id($image_id);
     $row =  mysqli_fetch_array($result);  
 
     return isset( $row["evolution_line"] );  ;

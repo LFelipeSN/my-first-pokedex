@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pesquisa pokémon</title>
 </head>
 <body>    
     <?php 
-    require("../connect_to_database.php");
     require("functions.php");
     $url = new url;
+    $search = new Search;
 
     $name_search = $_GET["name_pokemon"];
 
-    $found_pokemon = search_pokemon($mysqli, $name_search, $url); ?>
+    $found_pokemon = $search->search_pokemon($name_search, $url); ?>
 
     <?php if($found_pokemon == FALSE):
         $image_id = mt_rand(-3, -1);?>    
