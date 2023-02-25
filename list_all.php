@@ -11,45 +11,52 @@
     <title>POKÉDEX</title>
 </head>
 
-<body class="">
-<?php
-require("../connect_to_database.php");
-require("functions.php");
-$url = new url;
-
-$pokemon_id = $_GET["id"];
-?>
-
-<div class="container listar-todos">
-    <?php
-    list_all($mysqli, $pokemon_id, $url);
-    ?>
-</div>
-<?php
-
-$previous_list = ($pokemon_id-1);
-$next_list = ($pokemon_id+1);?>
-
-
-<div class="barra-navegacao">
-<form action = "index.php">
-    <button class="">Página Inicial</button>
-</form>
-
-<?php if( $pokemon_id > 1 ):?>
+<body>
+<header>
     <div>
-        <button><a href = <?php echo $url -> pokemon_list($previous_list); ?>>Anterior</a></button>   
+        <button class="botao-navegacao"><a href="index.php"><i class="fa-solid fa-house"></i></a></button>
     </div>
-<?php endif;?>  
+</header>
 
-<?php if( $pokemon_id < 19 ):?>
-    <div >
-        <button class=""><a href = <?php echo $url -> pokemon_list($next_list); ?>>Próximo</a></button>
+<main>
+    <?php
+
+    require("../connect_to_database.php");
+    require("functions.php");
+    $url = new url;
+
+    $pokemon_id = $_GET["id"];
+    ?>
+
+    <div class="container listar-todos">
+        <?php
+        list_all($mysqli, $pokemon_id, $url);
+        ?>
     </div>
-<?php endif;?>  
-</div>
+    <?php
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    $previous_list = ($pokemon_id-1);
+    $next_list = ($pokemon_id+1);?>
+
+
+    <div class="barra-navegacao">
+        
+        
+    <?php if( $pokemon_id > 1 ):?>
+        <div>
+            <button class="botao-navegacao"><a href = <?php echo $url -> pokemon_list($previous_list); ?>><i class="fa-solid fa-arrow-left"></i></a></button>   
+        </div>
+    <?php endif;?>  
+
+    <?php if( $pokemon_id < 19 ):?>
+        <div>
+            <button class="botao-navegacao"><a href = <?php echo $url -> pokemon_list($next_list); ?>><i class="fa-solid fa-arrow-right"></i></a></button>
+        </div>
+    <?php endif;?>  
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</main>
 </body>
     
 

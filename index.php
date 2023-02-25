@@ -47,14 +47,7 @@
                     <div class="foto-poke">
                         <img width="150" height="150" src= <?php echo $index -> image_index(); ?>  alt="pokemon">
                     </div>
-        
-                    <div class="row">
-                        <button class="col-4 tipo-pokedex" id= <?php echo $index -> color_type1_index($mysqli);?> > <?php echo $index -> type1_index($mysqli);?> </button> 
-                            <?php if( $index -> type2_index($mysqli) ):?>
-                        <button class="col-4 tipo-pokedex" id= <?php echo $index -> color_type2_index($mysqli);?> > <?php echo $index -> type2_index($mysqli);?> </button>
-                            <?php endif;?> 
-                    </div>
-                    
+           
                 </div>
                 <div class="lado-esquerdo bg-danger">
                     <p id="nome-pokemon"><?php echo $index -> name_index($mysqli); ?> </p>
@@ -84,6 +77,13 @@
                             <div></div>
                         </div>
                     
+                    </div>
+
+                    <div class="row">
+                        <button class="col-4 tipo-pokedex" id= <?php echo $index -> color_type1_index($mysqli);?> > <?php echo $index -> type1_index($mysqli);?> </button> 
+                            <?php if( $index -> type2_index($mysqli) ):?>
+                        <button class="col-4 tipo-pokedex" id= <?php echo $index -> color_type2_index($mysqli);?> > <?php echo $index -> type2_index($mysqli);?> </button>
+                            <?php endif;?> 
                     </div>
                 </div>
             </div>  
