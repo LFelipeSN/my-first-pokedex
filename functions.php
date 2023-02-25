@@ -1,8 +1,7 @@
 <?php
 include("../connect_to_database.php");
 
-$database = database();
-$mysqli = $database;
+$mysqli = database();
 
 class Index{
     public int $rand;

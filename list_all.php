@@ -20,10 +20,9 @@
 
 <main>
     <?php
-
-    require("../connect_to_database.php");
     require("functions.php");
     $url = new url;
+    $list = new List_all;
 
     $pokemon_id = $_GET["id"];
     ?>
