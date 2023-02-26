@@ -33,8 +33,8 @@
 body{
     background-image: linear-gradient(rgba(157, 212, 224, 0.674), rgba(161, 236, 205, 0.852));
     background-repeat: no-repeat;
-    background-size: 200%;
-    width: 100vw;/*modifiqued*/
+    width: 100%;/*modifiqued*/
+    background-position: center;
     height: 100vh;
 }
 /* header{
@@ -94,7 +94,7 @@ body{
 .card-poke{
     box-sizing: content-box;
     width: 25vw;
-    height: 36vh;
+    height: 33vh;
     border-radius: 15px;
     box-shadow: 4px 4px 12px 1px  rgba(10, 91, 116, 0.38),inset 1px 1px 6px 1px  rgba(229, 241, 245, 0.557);
     text-align: center;
@@ -103,7 +103,19 @@ body{
     background-image: linear-gradient(rgba(163, 229, 244, 0.674), rgba(123, 168, 237, 0.852));
     
 }
-
+.card-poke:hover{
+    box-shadow: 8px 8px 16px 4px  rgba(97, 100, 102, 0.38),inset 1px 1px 6px 1px  rgba(249, 249, 249, 0.557);
+    transition: scale(1.5);
+    height: 33.5vh;
+}
+.tipos{
+    background-color: rgba(163, 229, 244, 0.674);
+    width: 150px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    margin: 5px auto;
+}
 #nome-pokemon{
     color: rgb(7, 17, 11);
     font-weight: 600;
@@ -111,33 +123,17 @@ body{
     line-height: 36px;   
 }
 
-/* .tipos{
-    z-index: 1;
-    border-radius: 20px;
-    padding: 10px;
-    line-height: 21px;
-    background: var(--gelo-bg-color);
-    border-radius: 5px;
-    padding: 10px;
-    display: flex;
-    margin: 10px;
-    justify-content: center;
-    text-align: center;
-    
-} */
-
-.ver-pokemon{
-    text-decoration: none;
-    color: white;
+.icone-ver-poke{
+    width: 30px;
     border: none;
     background: none;
-    display: inline;
-    vertical-align: bottom;
-    align-content: end;
+    text-align: right;
+    margin: 57px 0 0 164px;
+  
     
 }
 
-.ver-pokemon a{
+.links-card{
     text-decoration: none;
     color: white;
     
@@ -204,6 +200,8 @@ body{
 
 }
 .barra-navegacao{
+    margin: 0;
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -213,10 +211,19 @@ body{
     
     
 }
-.botao-navegacao a {
-   color: white;
+a .botao-navegacao {
+    width: 20px;
+    color: white;
+    
+    
 }
 .botao-navegacao{
+    
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    padding: 4px 0;
     width: 40px;
     height: 40px;
     border-radius: 20px;
