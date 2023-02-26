@@ -78,9 +78,13 @@ class View{
 }
 
 class Search{
-    function search_pokemon($name_search, $url){
-
-        $result = sql_consult($name_search);
+    function search_pokemon($name_search, $url, $type_pokemon){
+        if($type_pokemon != ""){
+            $result = sql_consult($name_search, $type_pokemon);
+        }else{
+            $result = sql_consult($name_search);
+        }
+        
         $found_pokemon = FALSE;    
   
             while( $row = mysqli_fetch_array($result) ){
@@ -170,21 +174,28 @@ function go_evolution($pokemon_id, $url){
 }
 
 
-function sql_consult($name_search = ""){
+function sql_consult($name_search = "", $type_pokemon = ""){
     GLOBAL $mysqli;
 
     mysqli_select_db($mysqli, 'pokedex'); 
 
-    if($name_search == ""){
+    if($name_search == "" &&  $type_pokemon ==""){
         $sql = "SELECT * FROM pokemon";
         $result = mysqli_query($mysqli, $sql);
 
-    }else {        
+    }else if($type_pokemon == ""){
         $stmt = mysqli_prepare($mysqli, "SELECT * FROM pokemon WHERE name LIKE CONCAT(?, '%') ");
         mysqli_stmt_bind_param($stmt, "s", $name_search);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
-    }       
+    } 
+    else {        
+        $stmt = mysqli_prepare($mysqli, "SELECT * FROM pokemon WHERE name LIKE CONCAT(?, '%') and ( type_1=? or type_2=? ) ");
+        mysqli_stmt_bind_param($stmt, "sss", $name_search, $type_pokemon, $type_pokemon);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+    }   
+
     return $result;    
 }
 
@@ -238,19 +249,4 @@ function print_pokemon($row){
         ?>
     </div>
     <?php
-}
-
-
-
-function sql_consult_type($type){
-    GLOBAl $mysqli;
-
-    mysqli_select_db($mysqli, 'pokedex');
-
-    $stmt = mysqli_prepare($mysqli, "SELECT * FROM pokemon WHERE type_1=? or type_2=?");
-    mysqli_stmt_bind_param($stmt, "ss", $type, $type);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);     
-    
-    return $result;
 }

@@ -30,9 +30,29 @@
 
         <div class="container-fluid alinhamento align-itens-center">
             <div id="pesquisa" class="align-itens-center">
+
                 <form action="search_pokemon.php" method="GET">
+                
                     <input class="caixa-pesquisa" type="text" placeholder="Insira o nome do pokémon " name="name_pokemon" required/>
                     <button class="icone-pesquisa" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+                    <label for="type_pokemon">Tipos:
+                        <select name="type_pokemon" id="type_pokemon">
+                            <option value="" selected>Todos</option>
+                            <option value="Fire">Fogo</option>
+                            <option value="Water">Água</option>
+                            <option value="Poison">Veneno</option>
+                            <option value="Electric">Eletrico</option>
+                            <option value="Grass">Planta</option>
+                            <option value="Bug">Inseto</option>
+                            <option value="Flying">Voador</option>
+                            <option value="Ground">Terra</option>
+                            <option value="Psychic">Psiquico</option>
+                            <option value="Fighting">Lutador</option>
+                            <option value="Fairy">Fada</option>
+                            <option value="Rock">Rocha</option>
+                            <option value="Steel">Metal</option>
+                        </select>
 
                 </form>
             </div>

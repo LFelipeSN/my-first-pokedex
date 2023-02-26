@@ -12,7 +12,7 @@
     <title>Pesquisa pokémon</title>
 </head>
 <body>  
-<div class = "miau">
+<div class = "botao-home">
     <button class="botao-navegacao"><a href="index.php"><i class="fa-solid fa-house"></i></a></button>
 </div>  
     <?php 
@@ -20,13 +20,18 @@
     $url = new url;
     $search = new Search;
     $name_search = $_GET["name_pokemon"];
-    ?>
+    $type_pokemon = $_GET["type_pokemon"];
+    ?>           
+            
+        <!-- <input type="button" value="Submit" onClick="window.location.reload()"> --> 
+        <!-- <option value="c++" disabled>C++</option> -->
+    
+
     <div class="pesquisados col-5">
          <?php
-        $found_pokemon = $search->search_pokemon($name_search, $url); ?>
-        
+        $found_pokemon = $search->search_pokemon($name_search, $url, $type_pokemon); ?>
     </div>
-    
+
     <?php if($found_pokemon == FALSE):
         $image_id = mt_rand(-3, -1);?>    
         <img src = <?php echo image_find( $image_id )?> alt="pokemon">

@@ -226,7 +226,7 @@ body{
     color: white;
 }
 
-.miau{
+.botao-home{
     display: flex;
     width: 98vw;
     justify-content: flex-end;

@@ -14,17 +14,18 @@
 
 <body>
 
-<div class = "miau">
+<div class = "botao-home">
     <button class="botao-navegacao"><a href="index.php"><i class="fa-solid fa-house"></i></a></button>
 </div>
 
-    <?php
-    require("functions.php");
-    $url = new url;
-    $list = new List_all;
+<?php
+require("functions.php");
 
-    $pokemon_id = $_GET["id"];
-    ?>
+$url = new url;
+$list = new List_all;
+
+$pokemon_id = $_GET["id"];
+?>
 
 <div class="listar-todos">    
     <?php $list->list_all($pokemon_id, $url); ?>
