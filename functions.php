@@ -53,7 +53,7 @@ class Url{
     }
     
     function pokemon_find($pokemon_id){
-        $result = sql_consult_id($this->mysqli, $pokemon_id);
+        $result = sql_consult_id($pokemon_id);
         $row = mysqli_fetch_array($result);
         return "search_pokemon.php?name_pokemon=" . $row["name"];    
     }
@@ -82,16 +82,18 @@ class Search{
 
         $result = sql_consult($name_search);
         $found_pokemon = FALSE;    
+  
+            while( $row = mysqli_fetch_array($result) ){
+                    ?>
+                    
+                    <button class="poke-pesquisados"><a href = <?php echo $url -> view($row["pokemon_id"]); ?>><?php echo $row ["name"]; ?> </a></button>
+                    
+                    <?php  
 
-        while( $row = mysqli_fetch_array($result) ){
-                ?>
-                <button><a href = <?php echo $url -> view($row["pokemon_id"]); ?>><?php echo $row ["name"]; ?> </a></button>
-                <?php  
-
-                if(!$found_pokemon){
-                    $found_pokemon = TRUE; 
-                }
-            }        
+                    if(!$found_pokemon){
+                        $found_pokemon = TRUE; 
+                    }
+                }   
         
         return $found_pokemon;    
     }
