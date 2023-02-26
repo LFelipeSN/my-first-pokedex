@@ -33,17 +33,17 @@
 body{
     background-image: linear-gradient(rgba(157, 212, 224, 0.674), rgba(161, 236, 205, 0.852));
     background-repeat: no-repeat;
-    background-size: cover;/*add*/
+    background-size: 200%;
     width: 100vw;/*modifiqued*/
     height: 100vh;
 }
-header{
+/* header{
     display: flex;
     width: 98vw;
     justify-content: flex-end;
-    /* margin: 0 0 5px 5px; */
+    /* margin: 0 0 5px 5px; /
     padding: 10px;
-}
+} */
 
 .titulo{
     align-items: center;
@@ -225,3 +225,13 @@ header{
     background-color:#E02222;
     color: white;
 }
+
+.miau{
+    display: flex;
+    width: 98vw;
+    justify-content: flex-end;
+    /* margin: 0 0 5px 5px; */
+    padding: 10px;
+
+}
+    

@@ -98,6 +98,7 @@ class Search{
 }
 
 class List_all{
+
     function list_all($pokemon_id, $url){
         $pokemon_id = id_pokemon_list($pokemon_id);
         
@@ -106,25 +107,28 @@ class List_all{
             $result = sql_consult_id($pokemon_id); 
             $row = mysqli_fetch_array($result);?>
     
-            <div class="container justify-itens-center align-itens-center col-2 m-4 bg-secondary card">
-                
-                <img width="100" height="100" src = <?php echo image_find( $row["pokemon_id"] )?> alt="pokemon">
-    
+            <div class="justify-itens-center align-itens-center col-2 m-4 card-poke">
+
+                <img class="imagem-card" width="100" height="100" src = <?php echo image_find( $row["pokemon_id"] )?> alt="pokemon">
+
                 <?php print_pokemon($row) ;?>
-    
-                <button class="ver-pokemon btn btn-light"><a href = <?php echo $url -> view($row["pokemon_id"]); ?> >Ver Pokémon</a></button>   
-                
-            </div>   
+
+                <a class="ver-pokemon" href = <?php echo $url -> view($row["pokemon_id"]); ?> ><i class="fa-solid fa-chevron-right"></i></a>
+
+            </div>
            
-            <?php ;  
+            <?php  
     
             $pokemon_id++;
     
             if($pokemon_id > 151){
                 break;
             }
+            
+            
         endfor;         
     }
+
 }
 
 
