@@ -25,13 +25,8 @@
     $pokemon_id = $_GET["id"];
     ?>
 
-<div class="listar-todos">
-    <?php
-    
-    $list->list_all($pokemon_id, $url);
-
-    ?>
-
+<div class="listar-todos">    
+    <?php $list->list_all($pokemon_id, $url); ?>
 </div>
 
 <?php

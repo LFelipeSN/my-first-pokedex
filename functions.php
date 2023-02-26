@@ -100,7 +100,7 @@ class Search{
 class List_all{
 
     function list_all($pokemon_id, $url){
-        $pokemon_id = id_pokemon_list($pokemon_id);
+        $pokemon_id = $this->id_pokemon_list($pokemon_id);
         
         for($i=1 ; $i <= 8 ; $i++): 
                     
@@ -127,6 +127,18 @@ class List_all{
             
             
         endfor;         
+    }
+
+
+    function id_pokemon_list($n){ #PA que calcula o id do pokemon inicial da lista dado um determinado id(da url)
+        $An = 1 + ($n-1) * 8;
+        return $An;
+    }
+        
+
+    function filter_type($type){
+       $type_pokemon = sql_consult_type($type);
+       return $type_pokemon;        
     }
 
 }
@@ -202,10 +214,6 @@ function have_evolution($image_id){
 }
 
 
-function id_pokemon_list($n){ #PA que calcula o id do pokemon inicial da lista dado um determinado id(da url)
-    $An = 1 + ($n-1) * 8;
-    return $An;
-}
 
 function print_pokemon($row){
     ?>
@@ -228,4 +236,19 @@ function print_pokemon($row){
         ?>
     </div>
     <?php
+}
+
+
+
+function sql_consult_type($type){
+    GLOBAl $mysqli;
+
+    mysqli_select_db($mysqli, 'pokedex');
+
+    $stmt = mysqli_prepare($mysqli, "SELECT * FROM pokemon WHERE type_1=? or type_2=?");
+    mysqli_stmt_bind_param($stmt, "ss", $type, $type);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);     
+    
+    return $result;
 }
