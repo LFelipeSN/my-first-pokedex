@@ -35,7 +35,7 @@ body{
     background-repeat: no-repeat;
     width: 100%;/*modifiqued*/
     background-position: center;
-    height: 100vh;
+    height: 100%;
 }
 /* header{
     display: flex;
@@ -124,13 +124,13 @@ body{
 }
 
 .icone-ver-poke{
-    width: 30px;
+    width: 15vw;
     border: none;
     background: none;
     text-align: right;
-    margin: 57px 0 0 164px;
-  
-    
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;    
 }
 
 .links-card{
@@ -241,4 +241,3 @@ a .botao-navegacao {
     padding: 10px;
 
 }
-    

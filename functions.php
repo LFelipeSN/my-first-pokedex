@@ -114,17 +114,18 @@ class List_all{
             $row = mysqli_fetch_array($result);?>
             
             
-            <a class="justify-itens-center align-itens-center col-2 m-4 card-poke links-card" href = <?php echo $url -> view($row["pokemon_id"]); ?> >
-             
+                <a class="justify-itens-center align-itens-center col-2 m-4 card-poke links-card" href = <?php echo $url -> view($row["pokemon_id"]); ?> >
+                
+                        
+                        <img class="imagem-card" width="100" height="100" src = <?php echo image_find( $row["pokemon_id"] )?> alt="pokemon">
 
-                    <img class="imagem-card" width="100" height="100" src = <?php echo image_find( $row["pokemon_id"] )?> alt="pokemon">
-
-                    <?php print_pokemon($row) ;?>
-
-                    <i class="icone-ver-poke fa-solid fa-chevron-right"></i>
-
-            
-            </a>
+                        <?php print_pokemon($row) ;?>
+                        <div class = "icone-ver-poke">
+                            <i class =" fa-solid fa-chevron-right"></i>
+                        </div>
+                
+                </a>
+           
            
             <?php  
     
