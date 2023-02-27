@@ -20,7 +20,6 @@
     $url = new url;
     $search = new Search;
     $name_search = $_GET["name_pokemon"];
-    $type_pokemon = $_GET["type_pokemon"];
     ?>           
             
         <!-- <input type="button" value="Submit" onClick="window.location.reload()"> --> 
@@ -29,7 +28,7 @@
 
     <div class="pesquisados col-5">
          <?php
-        $found_pokemon = $search->search_pokemon($name_search, $url, $type_pokemon); ?>
+        $found_pokemon = $search->search_pokemon($name_search, $url); ?>
     </div>
 
     <?php if($found_pokemon == FALSE):

@@ -45,7 +45,7 @@ body{
     padding: 10px;
 } */
 
-.titulo{
+.titulo, .tipo-filtro-listar{
     align-items: center;
     justify-content: center;
     display: flex;

@@ -32,28 +32,12 @@
             <div id="pesquisa" class="align-itens-center">
 
                 <form action="search_pokemon.php" method="GET">
+                <form action="search_pokemon.php" method="GET">
+                
+                <form action="search_pokemon.php" method="GET">                
                 
                     <input class="caixa-pesquisa" type="text" placeholder="Insira o nome do pokémon " name="name_pokemon" required/>
                     <button class="icone-pesquisa" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-
-                    <label for="type_pokemon">Tipos:
-                        <select name="type_pokemon" id="type_pokemon">
-                            <option value="" selected>Todos</option>
-                            <option value="Fire">Fogo</option>
-                            <option value="Water">Água</option>
-                            <option value="Poison">Veneno</option>
-                            <option value="Electric">Eletrico</option>
-                            <option value="Grass">Planta</option>
-                            <option value="Bug">Inseto</option>
-                            <option value="Flying">Voador</option>
-                            <option value="Ground">Terra</option>
-                            <option value="Psychic">Psiquico</option>
-                            <option value="Fighting">Lutador</option>
-                            <option value="Fairy">Fada</option>
-                            <option value="Rock">Rocha</option>
-                            <option value="Steel">Metal</option>
-                        </select>
-
                 </form>
             </div>
 
@@ -65,7 +49,7 @@
                     </div>
                     <hr> <!--o html faz uma linha horizontal na página-->
                     <div class="foto-poke">
-                        <img width="150" height="150" src= <?php echo $index -> image_index(); ?>  alt="pokemon">
+                        <img width="150" height="150" src= <?php echo image_find($rand); ?>  alt="pokemon">
                     </div>
                     
                 </div>
@@ -118,7 +102,10 @@
 
     <footer>
         <div class="container-botao-listar">
-            <button class="botao-listar btn bg-danger"><a href = <?php echo $url -> pokemon_list() ?>>Listar todos os pokémons </a></button>             
+            <form action="list_all.php" method="POST"> 
+                <input type="hidden" name="id" value=1>
+                <button class="botao-listar btn bg-danger">Listar todos os pokémons </button> 
+            </form>               
         </div> 
     </footer>    
 </body>
