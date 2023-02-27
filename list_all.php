@@ -72,26 +72,26 @@ endif;
     $previous_list = ($pokemon_id-8);
     $next_list = ($pokemon_id+8);?>
 
-<!-- <footer>
+<footer>
     <div class="barra-navegacao">
         
         <?php if( $pokemon_id > 8 ):?>
             <form action="list_all.php" method="POST"> 
                 <input type="hidden" name="id" value= <?php echo $previous_list; ?>>
-                <button><a class="botao-navegacao" ><i class="fa-solid fa-arrow-left"></i></a></button> 
+                <button class="botao-navegacao" ><i class="fa-solid fa-arrow-left"></i></button> 
             </form>    
         <?php endif;?>  
 
         <?php if( $pokemon_id < 145 ):?>
             <form action="list_all.php" method="POST"> 
                 <input type="hidden" name="id" value= <?php echo $next_list; ?>>
-                <a class="botao-navegacao"><i class="fa-solid fa-arrow-right"></i></a>
+                <button class="botao-navegacao"><i class="fa-solid fa-arrow-right"></i></button>
                 
             </form>    
 
         <?php endif;?>  
     </div>
-</footer> -->
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
