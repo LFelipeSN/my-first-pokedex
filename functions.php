@@ -16,10 +16,6 @@ class Index{
         return $row["name"];
     }
     
-    function image_index(){ /* temporary function*/
-        return "./imagens/improved_version/id(".$this->rand.").png"; 
-    }
-
     function type1_index(){
         $result = sql_consult_id($this->rand);
         $row = mysqli_fetch_array($result);
@@ -48,10 +44,6 @@ class Url{
         return "pokemon_evolution.php?id=". $pokemon_id;
     }
 
-    function pokemon_list($pokemon_id=1){
-        return "list_all.php?id=". $pokemon_id;
-    }
-    
     function pokemon_find($pokemon_id){
         $result = sql_consult_id($pokemon_id);
         $row = mysqli_fetch_array($result);
@@ -78,12 +70,9 @@ class View{
 }
 
 class Search{
-    function search_pokemon($name_search, $url, $type_pokemon){
-        if($type_pokemon != ""){
-            $result = sql_consult($name_search, $type_pokemon);
-        }else{
-            $result = sql_consult($name_search);
-        }
+    function search_pokemon($name_search, $url){  
+
+        $result = sql_consult($name_search);        
         
         $found_pokemon = FALSE;    
   
@@ -105,26 +94,25 @@ class Search{
 
 class List_all{
 
-    function list_all($pokemon_id, $url){
-        $pokemon_id = $this->id_pokemon_list($pokemon_id);
-        
-        for($i=1 ; $i <= 8 ; $i++): 
-                    
-            $result = sql_consult_id($pokemon_id); 
-            $row = mysqli_fetch_array($result);?>
+    function list_all($pokemon_id, $type_pokemon){
+        $url = new Url;
+
+        $result = sql_consult_list($pokemon_id, $type_pokemon); 
+                
+        while( $row = mysqli_fetch_array($result) ): ?>       
             
-            
-            <a class="justify-itens-center align-itens-center col-2 m-4 card-poke links-card" href = <?php echo $url -> view($row["pokemon_id"]); ?> >
-             
+                <a class="justify-itens-center align-itens-center col-2 m-4 card-poke links-card" href = <?php echo $url -> view($row["pokemon_id"]); ?> >
+                
+                        
+                        <img class="imagem-card" width="100" height="100" src = <?php echo image_find( $row["pokemon_id"] )?> alt="pokemon">
 
-                    <img class="imagem-card" width="100" height="100" src = <?php echo image_find( $row["pokemon_id"] )?> alt="pokemon">
-
-                    <?php print_pokemon($row) ;?>
-
-                    <i class="icone-ver-poke fa-solid fa-chevron-right"></i>
-
-            
-            </a>
+                        <?php print_pokemon($row) ;?>
+                        <div class = "icone-ver-poke">
+                            <i class =" fa-solid fa-chevron-right"></i>
+                        </div>
+                
+                </a>
+           
            
             <?php  
     
@@ -135,7 +123,7 @@ class List_all{
             }
             
             
-        endfor;         
+        endwhile;         
     }
 
 
@@ -144,12 +132,6 @@ class List_all{
         return $An;
     }
         
-
-    function filter_type($type){
-       $type_pokemon = sql_consult_type($type);
-       return $type_pokemon;        
-    }
-
 }
 
 
@@ -177,27 +159,21 @@ function go_evolution($pokemon_id, $url){
 }
 
 
-function sql_consult($name_search = "", $type_pokemon = ""){
+function sql_consult($name_search = ""){
     GLOBAL $mysqli;
 
     mysqli_select_db($mysqli, 'pokedex'); 
 
-    if($name_search == "" &&  $type_pokemon ==""){
+    if($name_search == ""){
         $sql = "SELECT * FROM pokemon";
         $result = mysqli_query($mysqli, $sql);
 
-    }else if($type_pokemon == ""){
+    }else{
         $stmt = mysqli_prepare($mysqli, "SELECT * FROM pokemon WHERE name LIKE CONCAT(?, '%') ");
         mysqli_stmt_bind_param($stmt, "s", $name_search);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
     } 
-    else {        
-        $stmt = mysqli_prepare($mysqli, "SELECT * FROM pokemon WHERE name LIKE CONCAT(?, '%') and ( type_1=? or type_2=? ) ");
-        mysqli_stmt_bind_param($stmt, "sss", $name_search, $type_pokemon, $type_pokemon);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-    }   
 
     return $result;    
 }
@@ -217,8 +193,30 @@ function sql_consult_id($pokemon_id){
 }
 
 
+function sql_consult_list($pokemon_id, $type_pokemon){
+    GLOBAL $mysqli;
+
+    mysqli_select_db($mysqli, 'pokedex');
+
+    if($type_pokemon == ""){
+        $stmt = mysqli_prepare($mysqli, "SELECT * FROM pokemon WHERE pokemon_id>=? and pokemon_id<=151 LIMIT 8");
+        mysqli_stmt_bind_param($stmt, "i", $pokemon_id);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);  
+
+    }else{
+        $stmt = mysqli_prepare($mysqli, "SELECT * FROM pokemon WHERE pokemon_id>=? and pokemon_id<=151 and ( type_1=? or type_2=? ) LIMIT 8");
+        mysqli_stmt_bind_param($stmt, "iss", $pokemon_id, $type_pokemon, $type_pokemon);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+    }      
+    return $result;    
+}
+
+
 function image_find($image_id){  
-    return "./imagens/". $image_id .".png"; 
+    return "./imagens/improved_version/id(". $image_id .").png"; 
 }
 
 
