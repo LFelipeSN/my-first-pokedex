@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/50cab0d7de.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>Ver pokémon</title>
+
 </head>
 <body>
     <?php
@@ -23,13 +24,12 @@
     $image_id = $pokemon_id;?>
     
 
+    <div class="visualizando-pokemon">
     <?php if(have_evolution($pokemon_id) != NULL): ?>
-        <button class= "Ver Evolução" type = "submit"><a href = <?php echo $url -> evolution_find($image_id) ?> >Ver Evolução</a></button>                
-    <?php endif; ?>             
-
-    <form action = "index.php" >            
-        <button class="voltar" type = "submit">Voltar</button>
-    </form>    
+        <button class= "btn bg-light btn-ver-evolucao"><a href = <?php echo $url -> evolution_find($image_id) ?> >Ver Evolução</a></button>                
+    <?php endif; ?>                        
+        <button class="btn bg-primary voltar" ><a href="list_all.php">Voltar</a></button>
+    </div>
 </body>
 </html>
 

@@ -63,9 +63,11 @@ class View{
 
         $image_id =  $row["pokemon_id"]; ?>
 
-        <img width="150" height="150" src = <?php echo image_find( $image_id )?> alt="pokemon"> 
-                
-        <?php  print_pokemon($row); 
+        <div class="pesquisados">
+            <img width="150" height="150" src = <?php echo image_find( $image_id )?> alt="pokemon"> 
+            <?php  print_pokemon($row); ?>
+        </div> 
+        <?php 
     }
 }
 
@@ -145,14 +147,14 @@ function go_evolution($pokemon_id, $url){
     while( $row = mysqli_fetch_array($result) ):
         if( isset($row["evolution_line"]) && isset($evolution_line["evolution_line"]) ):
             if( $row["evolution_line"] == $evolution_line["evolution_line"] ): ?>
-                <img width="100" height="100" src = <?php echo ( image_find( $row["pokemon_id"] ) ) ?> >
+            <div class="card-poke">
+                <img class="imagem-poke" width="100" height="100" src = <?php echo ( image_find( $row["pokemon_id"] ) ) ?> >
 
                 <?php print_pokemon($row) ?>
+                <button class= "icone-ver-poke"><a href =<?php echo $url -> view($row["pokemon_id"]); ?> >Ver Pokémon</a></button>   
 
-                      <button class= " " type = "submit"><a href =<?php echo $url -> view($row["pokemon_id"]); ?> >Ver Pokémon</a></button>   
-
-                <?php echo "<br/>";
-                      echo "<br/>";       
+            </div>   
+            <?php   
             endif;            
         endif;  
     endwhile;        
