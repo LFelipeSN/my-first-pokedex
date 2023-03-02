@@ -12,13 +12,13 @@
     <title>Listar pokémon</title>
 </head>
 
-<body>
+<body class="altura-body">
 
 
 <div class = "botao-home">
     <a class="botao-navegacao" href="index.php"><i class="fa-solid fa-house"></i></a>
 </div>
-<div class = tipo-filtro-listar>
+<div class = "tipo-filtro-listar">
     <?php if( !(empty($_POST["type_pokemon"])) ):
         echo "Tipo : ". $_POST["type_pokemon"]; 
     endif;?>    
@@ -38,27 +38,30 @@ if( !(empty($_POST["type_pokemon"])) ):?>
 endif;
 
 ?>
+<div class="filtro-listar-todos">
 <form action="list_all.php" method="POST"> 
     <input type="hidden" name="id" value=<?php echo $pokemon_id;?>>
-    <label class="m-2" for="type_pokemon">Tipos:   
-    <select name="type_pokemon" id="type_pokemon">
-        <option value= "" selected>Todos</option>
-        <option value="Fire">Fogo</option>
-        <option value="Water">Água</option>
-        <option value="Poison">Veneno</option>
-        <option value="Electric">Eletrico</option>
-        <option value="Grass">Planta</option>
-        <option value="Bug">Inseto</option>
-        <option value="Flying">Voador</option>
-        <option value="Ground">Terra</option>
-        <option value="Psychic">Psiquico</option>
-        <option value="Fighting">Lutador</option>
-        <option value="Fairy">Fada</option>
-        <option value="Rock">Rocha</option>
-        <option value="Steel" disabled >Metal</option>
-    </select>
+    <label class="m-2" for="type_pokemon">Tipos:
+        <select name="type_pokemon form-select" aria-label="Default select example" id="type_pokemon">
+            <option value= "" selected>Todos</option>
+            <option value="Fire">Fogo</option>
+            <option value="Water">Água</option>
+            <option value="Poison">Veneno</option>
+            <option value="Electric">Eletrico</option>
+            <option value="Grass">Planta</option>
+            <option value="Bug">Inseto</option>
+            <option value="Flying">Voador</option>
+            <option value="Ground">Terra</option>
+            <option value="Psychic">Psiquico</option>
+            <option value="Fighting">Lutador</option>
+            <option value="Fairy">Fada</option>
+            <option value="Rock">Rocha</option>
+            <option value="Steel" disabled >Metal</option>
+        </select>
+    </label>  
     <button class = "btn bg-primary" type="submit">Filtrar</button>
-</form>    
+</form>   
+</div> 
 
 
 

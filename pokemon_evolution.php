@@ -11,18 +11,26 @@
     <title>Linha evolutiva</title>
 </head>
 <body>
+    <div class = "botao-home">
+        <a class="botao-navegacao" href="index.php"><i class="fa-solid fa-house"></i></a>
+    </div>
    <?php
         require("functions.php");
         $url = new url;
 
         $pokemon_id = $_GET["id"];
-        
-        go_evolution($pokemon_id, $url); 
+        ?>
+        <div class="row">
+            <?php
+         go_evolution($pokemon_id, $url);
+         ?>
+        </div>
+        <?php
 
    ?>
 
     <form action = "index.php">
-        <button class="voltar" type = "submit">Voltar</button>
+        <button class="btn btn-light" type = "submit">Criar realmente um botão de voltar</button>
     </form>
 
 </body>

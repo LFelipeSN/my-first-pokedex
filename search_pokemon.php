@@ -26,7 +26,7 @@
         <!-- <option value="c++" disabled>C++</option> -->
     
 
-    <div class="bg-secondary col-5">
+    <div class="container-fluid col-5">
          <?php
         $found_pokemon = $search->search_pokemon($name_search, $url); ?>
     </div>
