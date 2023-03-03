@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+
 :root {
     --verde-bg-color: rgba(96, 241, 147, 0.678);
     --roxo-bg-color:rgb(94, 85, 132);
@@ -144,9 +146,12 @@ body{
     background: none;
     text-align: right;
     display: flex;
-    justify-content: flex-end;
-    align-items: bottom;
-    margin-top: 15px;    
+    align-items: flex-end;
+    margin-top: 15px;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 3rem;  
 }
 
 .links-card{
@@ -252,18 +257,20 @@ a .botao-navegacao {
 .botao-home{
     display: flex;
     margin: 0;
-    justify-content: flex-end;/*
-    
-    width: 98vw;
+    margin-top: 10px;
     justify-content: flex-end;
-    /* margin: 0 0 5px 5px; 
-    padding: 10px; */
 
 }
 .pesquisados{
     margin: 5rem auto;
     width: 25vw;
     height: 33vh;
+}
+.achados-pesquisados{
+    width: 50rem;
+    margin:auto;
+    justify-content: center;
+    align-items: center;
 }
 .visualizando-pokemon{
     display: flex;
@@ -304,4 +311,14 @@ a .botao-navegacao {
 
 .no_found_pokemon{
     margin: 0 auto;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+.no_found_pokemon h2{
+    margin-top: 30px;
+    font-family: 'Dosis', sans-serif;
 }
