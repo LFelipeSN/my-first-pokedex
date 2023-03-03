@@ -20,10 +20,10 @@
 
         $pokemon_id = $_GET["id"];
         ?>
-        <div class="row">
+        <div class="row justify-content-center">
             <?php
-         go_evolution($pokemon_id, $url);
-         ?>
+                go_evolution($pokemon_id, $url);
+            ?>
         </div>
         <?php
 

@@ -296,7 +296,12 @@ a .botao-navegacao {
     height: 40px;
     border-radius: 5px;
 }
+
 .filtro-listar-todos button{
     width: 150px;
     height: 40px;
+}
+
+.no_found_pokemon{
+    margin: 0 auto;
 }

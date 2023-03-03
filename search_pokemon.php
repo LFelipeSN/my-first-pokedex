@@ -22,21 +22,19 @@
     $name_search = $_GET["name_pokemon"];
     ?>           
             
-        <!-- <input type="button" value="Submit" onClick="window.location.reload()"> --> 
-        <!-- <option value="c++" disabled>C++</option> -->
-    
-
-    <div class="container-fluid col-5">
+    <div class="container-fluid col-5"><!--------- centralizar plis-------->
          <?php
         $found_pokemon = $search->search_pokemon($name_search, $url); ?>
     </div>
 
-    <?php if($found_pokemon == FALSE):
-        $image_id = mt_rand(-3, -1);?>    
-        <img src = <?php echo image_find( $image_id )?> alt="pokemon">
-        <p></p>    
-        <h2> Não conseguimos achar este pokémon!</h2>    
-    <?php endif; ?>
+    <div class="no_found_pokemon">
+        <?php if($found_pokemon == FALSE):
+            $image_id = mt_rand(-3, -1);?>    
+            <img src = <?php echo image_find( $image_id )?> alt="pokemon">
+            <p></p>    
+            <h2> Não conseguimos achar este pokémon!</h2>    
+        <?php endif; ?>
+    </div>
   
 </body>
 </html>

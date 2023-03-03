@@ -30,19 +30,23 @@ require("functions.php");
 $url = new url;
 $list = new List_all;
 
-$pokemon_id = $_POST["id"];
 $type_pokemon = "";
+$pokemon_id = 1;
+$last_id = 0;
 
-if( !(empty($_POST["type_pokemon"])) ):?>
-    <?php $type_pokemon = $_POST["type_pokemon"];
-endif;
-
+if( !(empty($_POST["id"])) ){
+    $pokemon_id = $_POST["id"];
+}
+if( !(empty($_POST["type_pokemon"])) ){
+    $type_pokemon = $_POST["type_pokemon"];
+}
 ?>
+
 <div class="filtro-listar-todos">
 <form action="list_all.php" method="POST"> 
     <input type="hidden" name="id" value=<?php echo $pokemon_id;?>>
     <label class="m-2" for="type_pokemon">Tipos:
-        <select name="type_pokemon form-select" aria-label="Default select example" id="type_pokemon">
+        <select name="type_pokemon" aria-label="Default select example">
             <option value= "" selected>Todos</option>
             <option value="Fire">Fogo</option>
             <option value="Water">Água</option>
@@ -64,28 +68,25 @@ endif;
 </div> 
 
 
-
-
 <div class="listar-todos">    
     <?php $list->list_all($pokemon_id, $type_pokemon); ?>
 </div>
 
 <?php
-
     $previous_list = ($pokemon_id-8);
     $next_list = ($pokemon_id+8);?>
 
 <footer>
     <div class="barra-navegacao">
         
-        <?php if( $pokemon_id > 8 ):?>
+        <?php if( $pokemon_id > 8 && $type_pokemon == ""):?>
             <form action="list_all.php" method="POST"> 
                 <input type="hidden" name="id" value= <?php echo $previous_list; ?>>
                 <button class="botao-navegacao" ><i class="fa-solid fa-arrow-left"></i></button> 
             </form>    
         <?php endif;?>  
 
-        <?php if( $pokemon_id < 145 ):?>
+        <?php if( $pokemon_id < 145 && $type_pokemon == ""):?>
             <form action="list_all.php" method="POST"> 
                 <input type="hidden" name="id" value= <?php echo $next_list; ?>>
                 <button class="botao-navegacao"><i class="fa-solid fa-arrow-right"></i></button>

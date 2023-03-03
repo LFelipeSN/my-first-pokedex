@@ -81,7 +81,7 @@ class Search{
             while( $row = mysqli_fetch_array($result) ){
                     ?>
                     
-                    <button class="poke-pesquisados"><a href = <?php echo $url -> view($row["pokemon_id"]); ?>><?php echo $row ["name"]; ?> </a></button>
+                    <a href = <?php echo $url -> view($row["pokemon_id"]); ?>><button class="poke-pesquisados"><?php echo $row ["name"]; ?> </button></a>
                     
                     <?php  
 
@@ -101,11 +101,11 @@ class List_all{
 
         $result = sql_consult_list($pokemon_id, $type_pokemon); 
                 
-        while( $row = mysqli_fetch_array($result) ): ?>       
+        while( $row = mysqli_fetch_array($result) ): ?>
+
             
                 <a class="justify-itens-center align-itens-center col-2 m-4 card-poke links-card" href = <?php echo $url -> view($row["pokemon_id"]); ?> >
                 
-                        
                         <img class="imagem-card" width="100" height="100" src = <?php echo image_find( $row["pokemon_id"] )?> alt="pokemon">
 
                         <?php print_pokemon($row) ;?>
@@ -115,25 +115,15 @@ class List_all{
                 
                 </a>
            
-           
             <?php  
-    
             $pokemon_id++;
     
             if($pokemon_id > 151){
                 break;
             }
-            
-            
+             
         endwhile;         
     }
-
-
-    function id_pokemon_list($n){ #PA que calcula o id do pokemon inicial da lista dado um determinado id(da url)
-        $An = 1 + ($n-1) * 8;
-        return $An;
-    }
-        
 }
 
 
@@ -149,7 +139,6 @@ function go_evolution($pokemon_id, $url){
             if( $row["evolution_line"] == $evolution_line["evolution_line"] ): ?>
            
             <a class="justify-itens-center align-itens-center col-2 m-4 card-poke links-card" href = <?php echo $url -> view($row["pokemon_id"]); ?> >
-                
                         
                 <img class="imagem-card" width="100" height="100" src = <?php echo image_find( $row["pokemon_id"] )?> alt="pokemon">
 
@@ -212,7 +201,7 @@ function sql_consult_list($pokemon_id, $type_pokemon){
         $result = mysqli_stmt_get_result($stmt);  
 
     }else{
-        $stmt = mysqli_prepare($mysqli, "SELECT * FROM pokemon WHERE pokemon_id>=? and pokemon_id<=151 and ( type_1=? or type_2=? ) LIMIT 8");
+        $stmt = mysqli_prepare($mysqli, "SELECT * FROM pokemon WHERE pokemon_id>=? and pokemon_id<=151 and ( type_1=? or type_2=? ) ");
         mysqli_stmt_bind_param($stmt, "iss", $pokemon_id, $type_pokemon, $type_pokemon);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);

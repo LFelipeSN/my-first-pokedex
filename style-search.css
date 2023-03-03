@@ -10,6 +10,7 @@
 .poke-pesquisados:hover{
     box-shadow: 4px 4px 12px 1px  rgba(76, 82, 84, 0.38),inset 1px 1px 6px 1px  rgba(239, 243, 244, 0.557);
 }
+
 .poke-pesquisados a{
     text-decoration: none;
 }
