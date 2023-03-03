@@ -215,6 +215,10 @@ function image_find($image_id){
     return "./imagens/improved_version/id(". $image_id .").png"; 
 }
 
+function audio_find($audio_id){  
+    return "./audio/id(". $audio_id .").mp3"; 
+}
+
 
 function have_evolution($image_id){
     $result = sql_consult_id($image_id);

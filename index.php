@@ -41,6 +41,11 @@
                 </form>
             </div>
 
+            <!-- <button onclick="document.getElementById('player').play()">Play</button> -->
+            <audio id='player'> <!-- controls="controls" -->
+            <source src= <?php echo "./audio/"."pikachu"."mp3"; ?> type="audio/mp3"/>
+            seu navegador não suporta HTML5
+            </audio>    
     
             <div id="pokedex">
                 <div class="lado-direito bg-danger">
