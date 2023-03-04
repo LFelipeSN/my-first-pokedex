@@ -21,7 +21,7 @@
 
    <?php
         require("functions.php");
-        $url = new url;
+        $url = new Url;
 
         $pokemon_id = $_GET["id"];
         ?>
@@ -29,15 +29,15 @@
             <?php
                 go_evolution($pokemon_id, $url);
             ?>
+            
+        </div>    
+        <div class="visualizando-pokemon">    
+            <a href = <?php echo $url->view($pokemon_id); ?>><button class="btn btn-primary">Voltar</button> </a>
         </div>
         <?php
 
    ?>
-
-    <form action = "index.php">
-        <button class="btn btn-light" type = "submit">Criar realmente um botão de voltar</button>
-    </form>
-
+    
 
 <script>
     var audio = document.getElementById('player');

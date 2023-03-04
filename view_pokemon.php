@@ -31,7 +31,7 @@
     <?php if(have_evolution($pokemon_id) != NULL): ?>
         <button class= "btn bg-light btn-ver-evolucao"><a href = <?php echo $url -> evolution_find($pokemon_id) ?> >Ver Evolução</a></button>                
     <?php endif; ?>                        
-        <button class="btn bg-primary voltar" ><a href="list_all.php">Voltar</a></button>
+        <button class="btn bg-primary voltar" ><a href="index.php">Voltar</a></button>
     </div>
 
 

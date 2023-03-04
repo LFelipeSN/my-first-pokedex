@@ -29,7 +29,7 @@
     $name_search = $_GET["name_pokemon"];
     ?>           
             
-    <div class="achados-pesquisados"><!--------- centralizar plis-------->
+    <div class="achados-pesquisados">
          <?php
         $found_pokemon = $search->search_pokemon($name_search, $url); ?>
     </div>

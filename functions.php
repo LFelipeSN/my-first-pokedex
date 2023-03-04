@@ -151,7 +151,7 @@ function go_evolution($pokemon_id, $url){
             <?php   
             endif;            
         endif;  
-    endwhile;        
+    endwhile;       
 }
 
 

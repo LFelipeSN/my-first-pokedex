@@ -12,7 +12,7 @@
     <title>Listar pokémon</title>
 </head>
 
-<body class="altura-body">
+<body>
 
 
 <div class = "botao-home">
@@ -67,7 +67,7 @@ else: ?>
             <option value="Fighting">Lutador</option>
             <option value="Fairy">Fada</option>
             <option value="Rock">Rocha</option>
-            <option value="Steel" disabled >Metal</option>
+            <option value="Steel"  >Metal</option>
         </select>
     </label>  
     <button class = "btn bg-primary" type="submit">Filtrar</button>
