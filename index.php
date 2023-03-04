@@ -41,10 +41,8 @@
                 </form>
             </div>
 
-            <!-- <button onclick="document.getElementById('player').play()">Play</button> -->
-            <audio id='player'> <!-- controls="controls" -->
-            <source src= <?php echo "./audio/"."pikachu"."mp3"; ?> type="audio/mp3"/>
-            seu navegador não suporta HTML5
+            <audio autoplay id='player'>
+                <source src= "./audio/mix(Game_freak&Op).mp3" type="audio/mp3"/>
             </audio>    
     
             <div id="pokedex">
@@ -112,7 +110,14 @@
                 <button class="botao-listar btn bg-danger">Listar todos os pokémons </button> 
             </form>               
         </div> 
-    </footer>    
+    </footer>   
+    
+    
+<script>
+    var audio = document.getElementById('player');
+    audio.volume = 0.06;
+</script>
+
 </body>
 
 </html>

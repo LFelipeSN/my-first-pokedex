@@ -14,6 +14,11 @@
     <div class = "botao-home">
         <a class="botao-navegacao" href="index.php"><i class="fa-solid fa-house"></i></a>
     </div>
+
+    <audio autoplay id='player'>
+        <source src= "./audio/Evolution.mp3" type="audio/mp3"/>
+    </audio>  
+
    <?php
         require("functions.php");
         $url = new url;
@@ -32,6 +37,12 @@
     <form action = "index.php">
         <button class="btn btn-light" type = "submit">Criar realmente um botão de voltar</button>
     </form>
+
+
+<script>
+    var audio = document.getElementById('player');
+    audio.volume = 0.06;
+</script>    
 
 </body>
 </html>

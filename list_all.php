@@ -37,10 +37,17 @@ $last_id = 0;
 if( !(empty($_POST["id"])) ){
     $pokemon_id = $_POST["id"];
 }
-if( !(empty($_POST["type_pokemon"])) ){
+if( !(empty($_POST["type_pokemon"])) ):
     $type_pokemon = $_POST["type_pokemon"];
-}
-?>
+    
+else: ?>
+
+    <audio autoplay id='player'>
+        <source src= "./audio/Title_Screen.mp3" type="audio/mp3"/>
+    </audio>  
+
+<?php endif; ?>
+
 
 <div class="filtro-listar-todos">
 <form action="list_all.php" method="POST"> 
@@ -99,6 +106,13 @@ if( !(empty($_POST["type_pokemon"])) ){
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
+
+
+
+<script>
+    var audio = document.getElementById('player');
+    audio.volume = 0.06;
+</script>    
 </body>    
 
 </html>

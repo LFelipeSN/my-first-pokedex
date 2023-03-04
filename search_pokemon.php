@@ -16,6 +16,12 @@
 <div class = "botao-home">
     <a class="botao-navegacao" href="index.php"><i class="fa-solid fa-house"></i></a>
 </div>
+
+
+<audio autoplay id='player'>
+    <source src= "./audio/Game_Tutorial.mp3" type="audio/mp3"/>
+</audio>  
+
     <?php 
     require("functions.php");
     $url = new url;
@@ -35,6 +41,12 @@
             <h2> Não conseguimos achar este pokémon!</h2>    
         <?php endif; ?>
     </div>
-  
+
+
+<script>
+    var audio = document.getElementById('player');
+    audio.volume = 0.06;
+</script>
+    
 </body>
 </html>
