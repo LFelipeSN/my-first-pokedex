@@ -43,8 +43,8 @@
 
             <audio autoplay id='player'>
                 <source src= "./audio/mix(Game_freak&Op).mp3" type="audio/mp3"/>
-            </audio>    
-    
+            </audio>
+            
             <div id="pokedex">
                 <div class="lado-direito bg-danger">
                     <div class="botao-azul">
@@ -115,7 +115,7 @@
     
 <script>
     var audio = document.getElementById('player');
-    audio.volume = 0.06;
+    audio.volume = 0.04;
 </script>
 
 </body>

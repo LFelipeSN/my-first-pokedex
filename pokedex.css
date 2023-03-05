@@ -1,3 +1,15 @@
+@keyframes luz {
+    50%  {background-color: #7081d4;}
+    100% {background-color: #1035ebf1;}
+}
+
+@keyframes animat_pokedex{
+   50%{box-shadow: 8px 8px 16px 4px  rgba(97, 100, 102, 0.38),inset 1px 1px 6px 1px  rgba(249, 249, 249, 0.557);
+    transition: scale(1.5);}
+}
+
+
+
 #pokedex{
     /* margin: 0 400px; */ /*modifiqued*/
     display: flex;
@@ -6,8 +18,8 @@
     padding: 10px;
     border-radius: 10px;
     z-index: 0;
-    
 }
+
 .botao-azul{
     margin: 15px 0 -5px 5px;
     height: 50px;
@@ -16,6 +28,7 @@
     border-radius: 50%;
     display: inline-block;
     border: 2px solid white;
+    animation: luz 0.7s infinite;
 }
 .lado-direito{
     height: 400px;
@@ -32,7 +45,7 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 4px;
 }
-.lado-esquerdo{
+.lado-esquerdo{ 
     height: 350px;
     width: 250px;
     margin-top:30px;
@@ -78,3 +91,6 @@
         border: 1px solid black;
 }
 
+.lado-direito,.lado-esquerdo{
+    animation: animat_pokedex 1s infinite;
+}

@@ -1,4 +1,4 @@
-<?php
+ <?php
 include("../connect_to_database.php");
 
 $mysqli = database();
@@ -63,7 +63,7 @@ class View{
 
         $image_id =  $row["pokemon_id"]; ?>
 
-        <div class="pesquisados">
+        <div class="pesquisados">     
             <img width="150" height="150" src = <?php echo image_find( $image_id )?> alt="pokemon"> 
             <?php  print_pokemon($row); ?>
         </div> 
@@ -216,7 +216,7 @@ function image_find($image_id){
 }
 
 function audio_find($audio_id){  
-    return "./audio/id(". $audio_id .").mp3"; 
+    return "./audio/pokemon_voices/id(". $audio_id .").wav"; 
 }
 
 

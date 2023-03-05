@@ -14,16 +14,27 @@
 
 <body>  
 
-<audio autoplay id='player'>
-    <source src= "./audio/Pokémon_Center.mp3" type="audio/mp3"/>
-</audio>  
-
     <?php
     require("functions.php");
     $url = new url;
     $view = new View;
 
     $pokemon_id = $_GET["id"];
+
+    ?>
+    <audio autoplay id='player'>
+        <source src= "./audio/Pokémon_Center.mp3" type="audio/mp3"/>
+    </audio>  
+
+    <audio id='voice'>
+        <source src= <?php echo audio_find($pokemon_id);?> type="audio/wav"/>
+    </audio> 
+    
+    <div class="voice">
+        <button id="voice_button" onclick="document.getElementById('voice').play()" type="button"><i class="fa-solid fa-volume-high"></i></button>
+    </div>
+
+    <?php
 
     $view->view_pokemon($pokemon_id); ?>
 
@@ -37,7 +48,10 @@
 
 <script>
     var audio = document.getElementById('player');
-    audio.volume = 0.06;
+    audio.volume = 0.2;
+
+    var audio = document.getElementById('voice');
+    audio.volume = 0.7;
 </script>
 
 
