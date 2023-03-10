@@ -52,8 +52,7 @@
                     </div>
                     <hr> <!--o html faz uma linha horizontal na página-->
                     <div class="foto-poke">
-                        <!-- <img width="150" height="150" src= <?php echo image_find($rand); ?>  alt="pokemon">- -->
-                        <!-- <img src="" alt=""> -->
+                        <img width="150" height="150" src= <?php echo image_find($rand); ?>  alt="pokemon">-
                     </div>
                     
                 </div>
